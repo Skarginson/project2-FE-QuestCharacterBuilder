@@ -1,12 +1,18 @@
 import { Link } from "react-router-dom";
 
 function Sidebar() {
+  const handleViewSidebar = () => {
+    setSideBarClose(!sidebarOpen);
+  };
+
   return (
     <>
       <div className="sidebar">
-        <Link to="/About">About the project</Link>
-        <Link to="/Rules">About the page</Link>
-        <button>Open</button>
+        <div className="sidebarFlex">
+          <Link to="/About">About the project</Link>
+          <Link to="/Rules">About the page</Link>
+        </div>
+        <button>A</button>
       </div>
     </>
   );
