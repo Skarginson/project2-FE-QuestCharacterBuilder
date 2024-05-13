@@ -1,18 +1,25 @@
 import { Link } from "react-router-dom";
+import { useState } from "react";
 
 function Sidebar() {
-  const handleViewSidebar = () => {
-    setSideBarClose(!sidebarOpen);
-  };
-
+  const [isSidebarOpened, setIsSidebarOpened] = useState(false);
+  console.log(isSidebarOpened);
   return (
     <>
-      <div className="sidebar">
+      <div className={!isSidebarOpened ? "sidebarClosed" : "sidebarOpen"}>
         <div className="sidebarFlex">
           <Link to="/About">About the project</Link>
           <Link to="/Rules">About the page</Link>
         </div>
-        <button>A</button>
+        <button
+          onClick={() =>
+            !isSidebarOpened
+              ? setIsSidebarOpened(true)
+              : setIsSidebarOpened(false)
+          }
+        >
+          A
+        </button>
       </div>
     </>
   );
