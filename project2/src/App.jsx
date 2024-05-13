@@ -10,7 +10,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 
 function App() {
-  const [baseData, setBaseData] = useState([]);
+  const [baseData, setBaseData] = useState(null);
   const [errorMsg, setErrorMsg] = useState([]);
 
   useEffect(() => {
@@ -24,7 +24,9 @@ function App() {
     }
     getData();
   }, []);
-
+  if (!baseData) {
+    return <></>;
+  }
   return (
     <>
       <Routes>
