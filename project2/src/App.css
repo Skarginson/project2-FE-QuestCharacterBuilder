@@ -20,16 +20,34 @@
   width: 10%;
 }
 
-.sidebar {
+.sidebarClosed {
   height: 12vh;
   width: 16vw;
   background-color: #001514;
   position: absolute;
   top: 16vh;
   border: solid 1px white;
+  margin-left: -16vw;
+  transition: margin-left 300ms ease;
 }
 
-.sidebar button {
+.sidebarOpen {
+  height: 12vh;
+  width: 16vw;
+  background-color: #001514;
+  position: absolute;
+  top: 16vh;
+  border: solid 1px white;
+  transition: margin-left 300ms ease;
+}
+
+.sidebarClosed button {
+  width: 2vw;
+  margin-left: 16vw;
+  background-color: #001514;
+}
+
+.sidebarOpen button {
   width: 2vw;
   margin-left: 16vw;
   background-color: #001514;
