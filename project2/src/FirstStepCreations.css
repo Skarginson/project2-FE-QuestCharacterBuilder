@@ -1,0 +1,45 @@
+.form-g {
+  color: #fbf2ff;
+  width: 70vw;
+  height: 50vh;
+  margin-left: 15vw;
+  margin-top: -10vh;
+}
+
+h1 {
+  color: #fbf2ff;
+  font-size: 2rem;
+}
+
+p {
+  font-size: 1.3rem;
+  line-height: 3;
+}
+
+span {
+  font-size: 1rem;
+  font-weight: 500;
+  width: 12vw;
+  line-height: 1.4;
+  display: inline-block;
+  color: #d18ef2;
+  padding: 0.2%;
+  margin: 0.2%;
+  border-radius: 6px;
+}
+
+span:hover {
+  background-color: #ffffffc6;
+}
+
+.small {
+  width: 6vw;
+}
+
+.tall {
+  width: 18vw;
+}
+
+body {
+  background-color: #001514;
+}
