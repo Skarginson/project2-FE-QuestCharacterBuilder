@@ -22,14 +22,16 @@ span {
   width: 12vw;
   line-height: 1.4;
   display: inline-block;
-  color: #d18ef2;
+  color: #54fff7;
   padding: 0.2%;
   margin: 0.2%;
   border-radius: 6px;
+  border-bottom: solid 1px white;
 }
 
 span:hover {
-  background-color: #ffffffc6;
+  background-color: #344140;
+  color: #bebec4;
 }
 
 .small {
