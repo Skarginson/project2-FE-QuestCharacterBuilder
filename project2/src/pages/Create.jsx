@@ -3,7 +3,7 @@ import ChoseRole from "../components/ChoseRole";
 import ChoseInventory from "../components/ChoseInventory";
 import FirstStepCreations from "../components/FirstStepCreations";
 
-function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
+function Create({ baseData, setBaseData, handleChange, newForm, setNewForm}) {
   return (
     <>
       <ChoseAbilities

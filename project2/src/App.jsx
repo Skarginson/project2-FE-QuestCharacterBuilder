@@ -50,7 +50,7 @@ function App() {
       name = e.target.dataset.name;
     }
     setNewForm((data) => {
-      return { ...data, [name]: newValue };
+      return { ...data, [name]: newValue || newValue.push};
     });
   };
   useEffect(() => {
