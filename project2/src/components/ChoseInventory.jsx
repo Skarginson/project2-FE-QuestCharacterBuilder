@@ -112,6 +112,7 @@ function ChooseInventory({
           />
         ))}
       </div>
+      <button onClick={handleSubmit}>Go Next!</button>
     </div>
   );
 }
