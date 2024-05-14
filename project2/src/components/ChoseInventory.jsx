@@ -4,6 +4,7 @@ import { useState } from "react";
 function GearCard({ item, onClick, isSelected }) {
   return (
     <div
+      className="gearCard"
       onClick={() => onClick(item)}
       style={{
         border: isSelected ? "2px solid blue" : "1px solid grey",
@@ -63,8 +64,8 @@ function ChooseInventory({
 
   return (
     <div>
-      <div>
-        <h2>Select a Gear Item</h2>
+      <div className="cardContainer">
+        <h2 className="titleSelectGear">Select a Gear Item</h2>
         {gearItems.map((item) =>
           selectedGear ? (
             item === selectedGear && (
