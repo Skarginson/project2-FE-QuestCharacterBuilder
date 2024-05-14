@@ -8,7 +8,7 @@ function ChoseRole({ baseData }) {
     <>
       <Header />
       <Sidebar />
-      <div className="role-selection">
+      <div className="role-selection" order="1" >
         {baseData.roles.map((el) => {
           return (
             <div key={el.id} className="role-card">
@@ -28,7 +28,7 @@ function ChoseRole({ baseData }) {
           );
         })}
       </div>
-      {/* <Footer /> */}
+      <Footer />
     </>
   );
 }
