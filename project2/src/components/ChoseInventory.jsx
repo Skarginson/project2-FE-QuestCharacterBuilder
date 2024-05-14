@@ -18,7 +18,13 @@ function GearCard({ item, onClick, isSelected }) {
   );
 }
 
-function ChooseInventory({ baseData, setBaseData }) {
+function ChooseInventory({
+  baseData,
+  setBaseData,
+  handleChange,
+  newForm,
+  setNewForm,
+}) {
   const [selectedGear, setSelectedGear] = useState(null);
   const [newItems, setNewItems] = useState([]);
   const [newItemName, setNewItemName] = useState("");
@@ -46,6 +52,13 @@ function ChooseInventory({ baseData, setBaseData }) {
 
   const handleResetSelection = () => {
     setSelectedGear(null);
+  };
+
+  const handleSubmit = () => {
+    setNewForm((newForm) => ({
+      ...newForm,
+      inventory: [selectedGear, ...newItems],
+    }));
   };
 
   return (

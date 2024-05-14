@@ -77,7 +77,7 @@ function App() {
               baseData={baseData}
               setBaseData={setBaseData}
               handleChange={handleChange}
-              newform={newForm}
+              newForm={newForm}
               setNewForm={setNewForm}
             />
           }
@@ -89,7 +89,7 @@ function App() {
               baseData={baseData}
               setBaseData={setBaseData}
               handleChange={handleChange}
-              newform={newForm}
+              newForm={newForm}
               setNewForm={setNewForm}
             />
           }
