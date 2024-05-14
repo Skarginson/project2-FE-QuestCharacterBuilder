@@ -10,7 +10,7 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
         baseData={baseData}
         setBaseData={setBaseData}
         handleChange={handleChange}
-        newform={newForm}
+        newForm={newForm}
         setNewForm={setNewForm}
       />
       ;
@@ -18,21 +18,21 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
         baseData={baseData}
         setBaseData={setBaseData}
         handleChange={handleChange}
-        newform={newForm}
+        newForm={newForm}
         setNewForm={setNewForm}
       />
       <ChoseInventory
         baseData={baseData}
         setBaseData={setBaseData}
         handleChange={handleChange}
-        newform={newForm}
+        newForm={newForm}
         setNewForm={setNewForm}
       />
       <FirstStepCreations
         baseData={baseData}
         setBaseData={setBaseData}
         handleChange={handleChange}
-        newform={newForm}
+        newForm={newForm}
         setNewForm={setNewForm}
       />
     </>
