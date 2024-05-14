@@ -3,7 +3,6 @@ import { useState } from "react";
 
 function Sidebar() {
   const [isSidebarOpened, setIsSidebarOpened] = useState(false);
-  console.log(isSidebarOpened);
   return (
     <>
       <div className={!isSidebarOpened ? "sidebarClosed" : "sidebarOpen"}>
