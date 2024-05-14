@@ -72,11 +72,27 @@ function App() {
       <Routes>
         <Route
           path="/"
-          element={<Homepage baseData={baseData} setBaseData={setBaseData} />}
+          element={
+            <Homepage
+              baseData={baseData}
+              setBaseData={setBaseData}
+              handleChange={handleChange}
+              newform={newForm}
+              setNewForm={setNewForm}
+            />
+          }
         />
         <Route
           path="/Create"
-          element={<Create baseData={baseData} setBaseData={setBaseData} />}
+          element={
+            <Create
+              baseData={baseData}
+              setBaseData={setBaseData}
+              handleChange={handleChange}
+              newform={newForm}
+              setNewForm={setNewForm}
+            />
+          }
         />
         {/* <Route path="/About" element={<About />} />
         <Route path="/Rules" element={<Rules />} />
