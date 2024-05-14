@@ -54,7 +54,7 @@ function ChooseInventory({
     setSelectedGear(null);
   };
 
-  const handleSubmit = () => {
+  const handleInventorySubmit = () => {
     setNewForm((newForm) => ({
       ...newForm,
       inventory: [selectedGear, ...newItems],
@@ -112,7 +112,7 @@ function ChooseInventory({
           />
         ))}
       </div>
-      <button onClick={handleSubmit}>Go Next!</button>
+      <button onClick={handleInventorySubmit}>Go Next!</button>
     </div>
   );
 }
