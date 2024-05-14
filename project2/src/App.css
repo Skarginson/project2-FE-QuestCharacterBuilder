@@ -76,3 +76,54 @@ a {
 a:hover {
   color: #f5e1ff;
 }
+/*===================================*/
+
+.role-selection {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  margin: 7%;
+  flex-wrap: wrap;
+  text-align: center;
+}
+.role-card:hover {
+  transform: rotateY(180deg);
+}
+.role-card {
+  width: 20vw;
+  height: 20vh;
+  margin-right: 2.5vw;
+  margin-bottom: 10vw;
+  background-color: #0015;
+  transition: transform 0.999s;
+  transform-style: preserve-3d;
+  border-radius: 30px;
+}
+
+.role-card-front {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+}
+
+.role-card-back {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  backface-visibility: hidden;
+  transform: rotateY(-180deg);
+}
+
+.role-card-front > img {
+  width: 75%;
+}
+
+.role-name {
+  color: antiquewhite;
+}
+
+.role-description {
+  color: antiquewhite;
+}
