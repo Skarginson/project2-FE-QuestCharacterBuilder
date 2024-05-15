@@ -110,7 +110,13 @@ function App() {
         <Route path="/Rules" element={<Rules />} />*/}
         <Route
           path="/Details"
-          element={<Details baseData={baseData} newForm={newForm} />}
+          element={
+            <Details
+              setBaseData={setBaseData}
+              baseData={baseData}
+              newForm={newForm}
+            />
+          }
         />
       </Routes>
     </>
