@@ -16,9 +16,7 @@ function Sidebar() {
               ? setIsSidebarOpened(true)
               : setIsSidebarOpened(false)
           }
-        >
-          A
-        </button>
+        ></button>
       </div>
     </>
   );

@@ -5,7 +5,6 @@
 .footer {
   width: 100vw;
   height: 4vh;
-  background-color: white;
   position: fixed;
   bottom: 0px;
   text-align: center;
@@ -25,52 +24,66 @@
 
 .sidebarClosed {
   height: 12vh;
-  width: 16vw;
+  width: 14vw;
   background-color: #001514;
   position: absolute;
   top: 16vh;
-  margin-left: -16vw;
+  margin-left: -13vw;
   transition: margin-left 300ms ease;
   z-index: 3;
+  border-radius: 8px;
 }
 
 .sidebarOpen {
   height: 12vh;
-  width: 16vw;
+  width: 14vw;
   background-color: #001514;
   position: absolute;
   top: 16vh;
   transition: margin-left 300ms ease;
   z-index: 3;
+  border-radius: 8px;
 }
 
 .sidebarClosed button {
   width: 2vw;
-  margin-left: 16vw;
-  background-color: #001514;
-  order: solid 1px white;
+  height: 6vh;
+  margin-left: 14vw;
+  background-color: rgba(240, 248, 255, 0);
+  background-image: url("./assets/arrow_right.png");
+  background-size: cover;
   z-index: 3;
 }
 
 .sidebarOpen button {
   width: 2vw;
-  margin-left: 16vw;
-  background-color: #001514;
-  border: solid 1px white;
+  margin-left: 14vw;
+  height: 6vh;
+  background-color: rgba(240, 248, 255, 0);
+  background-size: cover;
+  background-image: url("./assets/arrow_left.png");
   z-index: 3;
 }
 
-.sidebar button:hover {
-  border-color: #f5e1ff;
+.sidebarOpen button:hover {
+  background-color: #54fff7;
+}
+.sidebarClosed button:hover {
+  background-color: #54fff7;
 }
 
+/* .sidebar button:hover {
+  border-color: #f5e1ff;
+} */
+
 .sidebarFlex {
+  height: 5vh;
   display: flex;
   flex-direction: column;
 }
 
 .sidebarFlex a {
-  margin-top: 1vh;
+  margin-top: 2vh;
   margin-left: 1vw;
   font-size: 1.1rem;
 }
@@ -81,7 +94,8 @@ a {
   text-decoration: inherit;
 }
 a:hover {
-  color: #f5e1ff;
+  color: #54fff7;
+  font-weight: 700;
 }
 /*=========roleSelection==========*/
 

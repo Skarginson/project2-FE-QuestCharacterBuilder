@@ -40,13 +40,8 @@ function FirstStepCreations({
             className="small"
             onInput={handleChange}
           ></span>{" "}
-          tall. I'm the party's{" "}
-          <span
-            data-name="role"
-            contentEditable="true"
-            onInput={handleChange}
-          ></span>
-          . When people see me, they first notice my{" "}
+          tall. I'm the party's <span>{newForm.role}</span>. When people see me,
+          they first notice my{" "}
           <span
             data-name="qualities1"
             contentEditable="true"
