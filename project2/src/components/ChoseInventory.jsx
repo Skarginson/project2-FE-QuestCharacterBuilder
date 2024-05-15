@@ -1,5 +1,8 @@
 import "./ChoseInventory.css";
 import { useState } from "react";
+import { useEffect } from "react";
+import { API_BASE_URL } from "../consts";
+import axios from "axios";
 
 function GearCard({ item, onClick, isSelected }) {
   return (
@@ -30,7 +33,8 @@ function ChooseInventory({
   const [newItems, setNewItems] = useState([]);
   const [newItemName, setNewItemName] = useState("");
   const [newItemDescription, setNewItemDescription] = useState("");
-
+  const [errorMsg, setErrorMsg] = useState(null);
+  const navigate = useNavigate();
   const gearItems =
     baseData.treasures?.filter((item) => item.rarity === "gear") || [];
 
@@ -62,6 +66,17 @@ function ChooseInventory({
     }));
   };
 
+    async function handleSubmit(newForm) {
+      try {
+        await axios.post(`${API_BASE_URL}/characters`, newForm);
+        navigate("/");
+      } catch (err) {
+        setErrorMsg(err.message);
+      }
+    }
+
+
+  console.log(newForm);
   return (
     <div>
       <div className="cardContainer">
@@ -113,7 +128,7 @@ function ChooseInventory({
           />
         ))}
       </div>
-      <button onClick={handleInventorySubmit}>Go Next!</button>
+      <button onClick={() => {handleInventorySubmit(); handleSubmit();}}>Create your Character</button>
     </div>
   );
 }
