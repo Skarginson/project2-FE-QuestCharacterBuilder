@@ -16,7 +16,7 @@ function App() {
     surname: "",
     age: 0,
     height: 0,
-    roleId: "",
+    role: "",
     qualities1: "",
     qualities2: "",
     qualities3: "",
