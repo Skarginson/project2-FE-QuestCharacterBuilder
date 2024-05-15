@@ -2,7 +2,7 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 // import About from "./pages/About";
 import Create from "./pages/Create";
-// import Details from "./pages/Details";
+import Details from "./pages/Details";
 // import Rules from "./pages/Rules";
 import Homepage from "./pages/Homepage";
 import { API_BASE_URL } from "./consts";
@@ -107,8 +107,11 @@ function App() {
           }
         />
         {/* <Route path="/About" element={<About />} />
-        <Route path="/Rules" element={<Rules />} />
-      <Route path="/Details" element={<Details />} /> */}
+        <Route path="/Rules" element={<Rules />} />*/}
+        <Route
+          path="/Details"
+          element={<Details baseData={baseData} newForm={newForm} />}
+        />
       </Routes>
     </>
   );
