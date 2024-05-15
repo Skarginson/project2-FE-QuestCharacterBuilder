@@ -16,7 +16,7 @@ function App() {
     surname: "",
     age: 0,
     height: 0,
-    role: "",
+    roleId: "",
     qualities1: "",
     qualities2: "",
     qualities3: "",
@@ -36,9 +36,10 @@ function App() {
   const [errorMsg, setErrorMsg] = useState([]);
   const [newForm, setNewForm] = useState(emptyForm);
 
-  const handleChange = (e) => {
+  const handleChange = (e, addToList = false) => {
     let newValue;
     let name;
+
     if (
       e.target instanceof HTMLInputElement ||
       e.target instanceof HTMLTextAreaElement
@@ -49,9 +50,20 @@ function App() {
       newValue = e.target.textContent;
       name = e.target.dataset.name;
     }
-    setNewForm((data) => {
-      return { ...data, [name]: newValue || newValue.push};
-    });
+
+    if (addToList && Array.isArray(newForm[name])) {
+      setNewForm((data) => {
+        const newList = data[name].includes(newValue)
+          ? data[name].filter((el) => el !== newValue)
+          : [...data[name], newValue];
+
+        return { ...data, [name]: newList };
+      });
+    } else {
+      setNewForm((data) => {
+        return { ...data, [name]: newValue };
+      });
+    }
   };
   useEffect(() => {
     async function getData() {
