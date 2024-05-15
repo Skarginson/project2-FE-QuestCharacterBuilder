@@ -15,7 +15,19 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
     <>
       <Header />
       <Sidebar />
-      {step === 0 && "présentation jeu"}
+      {step === 0 && (
+        <div className="firstpage">
+          <h1>Create tour Character</h1> <p>description</p>{" "}
+          <p>
+            Who is the creator ?{" "}
+            <span
+              data-name="author"
+              contentEditable="true"
+              onInput={handleChange}
+            ></span>{" "}
+          </p>{" "}
+        </div>
+      )}
       {step === 2 && (
         <ChoseAbilities
           baseData={baseData}
@@ -55,12 +67,16 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
       )}
       <div className="btnForm">
         {step >= 1 && (
-          <button onClick={() => step >= 1 && setStep(step - 1)}>
-            previous
-          </button>
+          <button
+            className="previous"
+            onClick={() => step >= 1 && setStep(step - 1)}
+          ></button>
         )}
         {step <= 3 && (
-          <button onClick={() => step <= 3 && setStep(step + 1)}>next</button>
+          <button
+            className="next"
+            onClick={() => step <= 3 && setStep(step + 1)}
+          ></button>
         )}
       </div>
       <Footer />
