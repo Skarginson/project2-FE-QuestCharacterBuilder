@@ -1,6 +1,7 @@
 import Image from "../assets/Projet2img.jpg";
 
-function ChoseRole({ baseData, handleChange }) {
+function ChoseRole({ baseData, handleChange, newForm }) {
+  console.log(newForm)
   return (
     <>
       <div className="roleSelection" order="1">
@@ -16,10 +17,11 @@ function ChoseRole({ baseData, handleChange }) {
                 <p className="roleDescription">{el.description}</p>
                 <input
                   type="radio"
-                  value={el.id}
-                  name="roleId"
+                  value={`${el.id},${el.name}`}
+                  name="role"
                   onChange={handleChange}
                 />
+
               </div>
             </div>
           );

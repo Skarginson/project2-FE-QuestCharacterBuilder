@@ -1,4 +1,4 @@
-import "../App.css";
+import "../charDetails.css";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
@@ -40,60 +40,65 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
       <Sidebar />
       {detailsData ? (
         <>
-          <div className="details">
-            <h1>Character Details</h1>
-            <p>
-              Hi, my name is {detailsData.name} ({detailsData.surname}). I'm{" "}
-              {detailsData.age} years old and stand {detailsData.height} tall.
-              I'm the party's {detailsData.role}.
-            </p>
-            <p>
-              When people see me, they first notice my {detailsData.qualities1},{" "}
-              {detailsData.qualities2} and {detailsData.qualities3}.
-            </p>
-            <p>
-              I wear {detailsData.accessories1}, {detailsData.accessories2} and
-              move with {detailsData.move}.
-            </p>
-            <p>
-              I'm from {detailsData.origin} where my people are known for{" "}
-              {detailsData.culture}
-            </p>
-            <p>
-              I believe in {detailsData.belief} but my {detailsData.flaw} side
-              can get in my way.
-            </p>
-            <p>I dream of {detailsData.dream}</p>
-          </div>
+          {" "}
+          <div className="cadre">
+            <div className="leftSide">
+              <div className="details">
+                <h1>Character Details</h1>
+                <p>
+                  Hi, my name is {detailsData.name} ({detailsData.surname}). I'm{" "}
+                  {detailsData.age} years old and stand {detailsData.height}{" "}
+                  tall. I'm the party's {detailsData.role}.
+                </p>
+                <p>
+                  When people see me, they first notice my{" "}
+                  {detailsData.qualities1}, {detailsData.qualities2} and{" "}
+                  {detailsData.qualities3}.
+                </p>
+                <p>
+                  I wear {detailsData.accessories1}, {detailsData.accessories2}{" "}
+                  and move with {detailsData.move}.
+                </p>
+                <p>
+                  I'm from {detailsData.origin} where my people are known for{" "}
+                  {detailsData.culture}
+                </p>
+                <p>
+                  I believe in {detailsData.belief} but my {detailsData.flaw}{" "}
+                  side can get in my way.
+                </p>
+                <p>I dream of {detailsData.dream}</p>
+              </div>
 
-          <div className="abilitiesContainer">
-            <h1>Abilities</h1>
-            {detailsData.abilities ? (
-              detailsData.abilities.map((ability, index) => (
-                <div key={index} className="abilityCard">
-                  <h3>{ability.name}</h3>
-                  <p>Coût en AP: {ability.cost}</p>
-                  <p>Description: {ability.description}</p>
-                </div>
-              ))
-            ) : (
-              <p>No abilities found</p>
-            )}
-          </div>
-
-          <div className="inventoryContainer">
-            <h1>Inventory</h1>
-            {detailsData.inventory ? (
-              detailsData.inventory.map((inventory, index) => (
-                <div key={index} className="inventoryCard">
-                  <h3>{inventory.name}</h3>
-                  <p>Coût en AP: {inventory.cost}</p>
-                  <p>Description: {inventory.description}</p>
-                </div>
-              ))
-            ) : (
-              <p>No items found</p>
-            )}
+              <div className="abilitiesContainer">
+                <h1>Abilities</h1>
+                {detailsData.abilities ? (
+                  detailsData.abilities.map((ability, index) => (
+                    <div key={index} className="abilityCard">
+                      <h3>{ability.name}</h3>
+                      <p>Coût en AP: {ability.cost}</p>
+                      <p>Description: {ability.description}</p>
+                    </div>
+                  ))
+                ) : (
+                  <p>No abilities found</p>
+                )}
+              </div>
+            </div>
+            <div className="inventoryContainer">
+              <h1>Inventory</h1>
+              {detailsData.inventory ? (
+                detailsData.inventory.map((inventory, index) => (
+                  <div key={index} className="inventoryCard">
+                    <h3>{inventory.name}</h3>
+                    <p>Coût en AP: {inventory.cost}</p>
+                    <p>Description: {inventory.description}</p>
+                  </div>
+                ))
+              ) : (
+                <p>No items found</p>
+              )}
+            </div>
           </div>
         </>
       ) : errorMsg ? (
