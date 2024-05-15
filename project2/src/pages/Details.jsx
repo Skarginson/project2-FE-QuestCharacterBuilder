@@ -5,22 +5,23 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
+import { useParams } from "react-router-dom";
 
 function CharacterDetails({ baseData, setBaseData, newForm }) {
   const [detailsData, setDetailsData] = useState({});
   const [errorMsg, setErrorMsg] = useState(null);
+  const { characterId } = useParams();
 
   useEffect(() => {
     async function getDetailsData() {
       try {
-        const response = await axios.get(`${API_BASE_URL}/characters/1`); //add ID here
+        const response = await axios.get(
+          `${API_BASE_URL}/characters/${characterId}`
+        );
         const filteredCharAbilities = baseData.abilities.filter((ability) =>
           response.data.abilities.includes(ability.name)
         );
-        const filteredCharInventory = baseData.treasures.filter((treasure) =>
-          response.data.inventory.includes(treasure.name)
-        );
-        response.data.inventory = filteredCharInventory;
+
         response.data.abilities = filteredCharAbilities;
         setDetailsData(response.data);
       } catch (err) {
@@ -28,8 +29,9 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
       }
     }
     getDetailsData();
-  }, []);
-  // console.log(detailsData);
+  }, [characterId]);
+
+  console.log("Inventory", detailsData.inventory);
 
   return (
     <div>
@@ -88,7 +90,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
                 detailsData.inventory.map((inventory, index) => (
                   <div key={index} className="inventoryCard">
                     <h3>{inventory.name}</h3>
-                    <p>Coût en AP: {inventory.cost}</p>
+                    {/* <p>Coût en AP: {inventory.cost}</p> */}
                     <p>Description: {inventory.description}</p>
                   </div>
                 ))

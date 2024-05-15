@@ -2,8 +2,10 @@ function ChoseAbilities({ baseData, handleChange, newForm }) {
   return (
     <>
       <div className="abilitiesSelection">
-        {baseData.abilities.filter((el) => el.roleId === newForm.roleId).map((el) => {
-          return (
+        {baseData.abilities
+          .filter((el) => el.roleId === newForm.role.split(",")[0])
+          .map((el) => {
+            return (
               <ul key={el.name}>
                 <li className="abilitiesCard">
                   <h2>{el.name}</h2>
@@ -32,11 +34,11 @@ function ChoseAbilities({ baseData, handleChange, newForm }) {
                   />
                 </li>
               </ul>
-          )
-        })}
+            );
+          })}
       </div>
     </>
-  )
+  );
 }
 
 export default ChoseAbilities;

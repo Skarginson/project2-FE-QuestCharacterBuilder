@@ -109,7 +109,7 @@ function App() {
         {/* <Route path="/About" element={<About />} />
         <Route path="/Rules" element={<Rules />} />*/}
         <Route
-          path="/Details"
+          path="/Details/:characterId"
           element={
             <Details
               setBaseData={setBaseData}
