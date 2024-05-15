@@ -1,5 +1,4 @@
 function ChoseAbilities({ baseData, handleChange, newForm }) {
-  console.log(newForm);
   return (
     <>
       <div className="abilitiesSelection">
@@ -33,11 +32,11 @@ function ChoseAbilities({ baseData, handleChange, newForm }) {
                   />
                 </li>
               </ul>
-          );
+          )
         })}
       </div>
     </>
-  );
+  )
 }
 
 export default ChoseAbilities;

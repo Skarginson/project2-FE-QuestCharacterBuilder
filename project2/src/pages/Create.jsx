@@ -10,7 +10,6 @@ import { useState } from "react";
 
 function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
   const [step, setStep] = useState(0);
-  console.log(step);
   return (
     <>
       <Header />
