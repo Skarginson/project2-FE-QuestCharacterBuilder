@@ -8,7 +8,6 @@ function FirstStepCreations({
   setNewForm,
   handleChange,
 }) {
-  console.log("changement", newForm);
   return (
     <>
       <div className="form-g" order="3">
@@ -40,8 +39,8 @@ function FirstStepCreations({
             className="small"
             onInput={handleChange}
           ></span>{" "}
-          tall. I'm the party's <span>{newForm.role}</span>. When people see me,
-          they first notice my{" "}
+          tall. I'm the party's {newForm.role.split(",")[1]}. When people see
+          me, they first notice my{" "}
           <span
             data-name="qualities1"
             contentEditable="true"

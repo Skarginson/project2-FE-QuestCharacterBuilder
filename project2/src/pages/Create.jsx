@@ -36,7 +36,6 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
           setNewForm={setNewForm}
         />
       )}
-      ;
       {step === 1 && (
         <ChoseRole
           baseData={baseData}
