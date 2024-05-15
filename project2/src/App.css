@@ -1,8 +1,8 @@
 .footer {
   width: 100vw;
-  height: 5vh;
+  height: 4vh;
   background-color: white;
-  position: absolute;
+  position: fixed;
   bottom: 0px;
   text-align: center;
 }
