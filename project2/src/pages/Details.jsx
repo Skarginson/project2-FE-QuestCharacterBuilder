@@ -21,10 +21,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
         const filteredCharAbilities = baseData.abilities.filter((ability) =>
           response.data.abilities.includes(ability.name)
         );
-        const filteredCharInventory = baseData.treasures.filter((treasure) =>
-          response.data.inventory.includes(treasure.name)
-        );
-        response.data.inventory = filteredCharInventory;
+
         response.data.abilities = filteredCharAbilities;
         setDetailsData(response.data);
       } catch (err) {
@@ -33,6 +30,8 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
     }
     getDetailsData();
   }, [characterId]);
+
+  console.log("Inventory", detailsData.inventory);
 
   return (
     <div>
@@ -91,7 +90,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
                 detailsData.inventory.map((inventory, index) => (
                   <div key={index} className="inventoryCard">
                     <h3>{inventory.name}</h3>
-                    <p>Coût en AP: {inventory.cost}</p>
+                    {/* <p>Coût en AP: {inventory.cost}</p> */}
                     <p>Description: {inventory.description}</p>
                   </div>
                 ))

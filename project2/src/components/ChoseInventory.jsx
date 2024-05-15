@@ -67,9 +67,12 @@ function ChooseInventory({
   };
 
   async function handleSubmit(newForm) {
-    console.log("concsole log before try", newForm);
+    console.log("console log before try", newForm);
     try {
-      await axios.post(`${API_BASE_URL}/characters`, newForm);
+      await axios.post(`${API_BASE_URL}/characters`, {
+        ...newForm,
+        inventory: [selectedGear, ...newItems],
+      });
       navigate("/");
     } catch (err) {
       setErrorMsg(err.message);
@@ -130,7 +133,7 @@ function ChooseInventory({
       </div>
       <button
         onClick={() => {
-          handleInventorySubmit();
+          // handleInventorySubmit();
           handleSubmit(newForm);
         }}
       >
