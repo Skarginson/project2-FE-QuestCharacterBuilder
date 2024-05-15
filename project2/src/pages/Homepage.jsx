@@ -23,19 +23,18 @@ function Homepage({ baseData, setBaseData }) {
       <Header />
       <Sidebar />
       <div className="holdCard">
-        <Link to="/Create" className="homeCard">
+        <Link to="/create" className="homeCard">
           Create
         </Link>
         {charInfo.map((char) => (
-          <CharacterCard
-            key={char.id}
-            id={char.id}
-            name={char.name}
-            imageSrc={char.imageSrc}
-            author={char.author}
-          />
+          <Link to={`/details/${char.id}`} key={char.id} className="homeCard">
+            <CharacterCard
+              name={char.name}
+              imageSrc={char.imageSrc}
+              author={char.author}
+            />
+          </Link>
         ))}
-        <CharacterCard name={"name"} imageSrc={imgEx} author={"author"} />
       </div>
       <Footer />
     </>

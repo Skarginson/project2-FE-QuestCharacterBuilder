@@ -5,15 +5,19 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
+import { useParams } from "react-router-dom";
 
 function CharacterDetails({ baseData, setBaseData, newForm }) {
   const [detailsData, setDetailsData] = useState({});
   const [errorMsg, setErrorMsg] = useState(null);
+  const { characterId } = useParams();
 
   useEffect(() => {
     async function getDetailsData() {
       try {
-        const response = await axios.get(`${API_BASE_URL}/characters/1`); //add ID here
+        const response = await axios.get(
+          `${API_BASE_URL}/characters/${characterId}`
+        );
         const filteredCharAbilities = baseData.abilities.filter((ability) =>
           response.data.abilities.includes(ability.name)
         );
@@ -28,8 +32,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
       }
     }
     getDetailsData();
-  }, []);
-  // console.log(detailsData);
+  }, [characterId]);
 
   return (
     <div>

@@ -78,7 +78,7 @@ function ChooseInventory({
 
   console.log(newForm);
   return (
-    <div>
+    <>
       <div className="cardContainer">
         <h2 className="titleSelectGear">Select a Gear Item</h2>
         {gearItems.map((item) =>
@@ -136,7 +136,7 @@ function ChooseInventory({
       >
         Create your Character
       </button>
-    </div>
+    </>
   );
 }
 
