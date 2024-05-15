@@ -1,8 +1,8 @@
 import "./ChoseInventory.css";
 import { useState } from "react";
-import { useEffect } from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function GearCard({ item, onClick, isSelected }) {
   return (
@@ -66,15 +66,15 @@ function ChooseInventory({
     }));
   };
 
-    async function handleSubmit(newForm) {
-      try {
-        await axios.post(`${API_BASE_URL}/characters`, newForm);
-        navigate("/");
-      } catch (err) {
-        setErrorMsg(err.message);
-      }
+  async function handleSubmit(newForm) {
+    console.log("concsole log before try", newForm);
+    try {
+      await axios.post(`${API_BASE_URL}/characters`, newForm);
+      navigate("/");
+    } catch (err) {
+      setErrorMsg(err.message);
     }
-
+  }
 
   console.log(newForm);
   return (
@@ -128,7 +128,14 @@ function ChooseInventory({
           />
         ))}
       </div>
-      <button onClick={() => {handleInventorySubmit(); handleSubmit();}}>Create your Character</button>
+      <button
+        onClick={() => {
+          handleInventorySubmit();
+          handleSubmit(newForm);
+        }}
+      >
+        Create your Character
+      </button>
     </div>
   );
 }
