@@ -1,0 +1,37 @@
+.details {
+  text-align: justify;
+  width: 40vw;
+  padding: 2vw;
+}
+
+h1 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+p {
+  font-size: 1rem;
+}
+
+.abilitiesContainer {
+  width: 40vw;
+  height: 40vh;
+}
+
+.inventoryContainer {
+  width: 80vw;
+  height: 40vh;
+  display: flex;
+}
+
+.cadre {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 80vw;
+  margin: 10vw;
+}
+
+.leftSide {
+  display: flex;
+}
