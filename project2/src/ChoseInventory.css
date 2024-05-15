@@ -1,0 +1,118 @@
+@import "./variables.css";
+
+body {
+  color: white;
+}
+
+.gearCard {
+  cursor: pointer;
+  margin: 10px;
+  padding: 10px;
+  width: 10vw;
+}
+
+.cardContainer {
+  width: 90vw;
+  line-height: 2rem;
+  margin-left: 5vw;
+  margin-top: 3vh;
+  display: flex;
+}
+
+.gearCard:hover {
+  border: 3px solid #54fff7;
+  background-color: #54fff64f;
+}
+
+.gearCard h3 {
+  margin-bottom: 2vh;
+  line-height: 1.2rem;
+}
+
+.cardContainer p {
+  line-height: 1.5rem;
+  font-size: 1rem;
+}
+
+.titleSelectGear {
+  margin-top: 12vh;
+}
+
+h2 {
+  text-align: center;
+  width: 100vw;
+  height: 6vh;
+  margin-top: 4vh;
+}
+
+h2:hover {
+  color: #54fff7;
+}
+
+.changeMind {
+  background-color: #54fff7;
+  border-radius: 6px;
+  box-shadow: white;
+  color: black;
+  cursor: pointer;
+  height: 5vh;
+  padding: 0.1vw;
+  text-align: center;
+  width: 15vw;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-left: 4vw;
+}
+
+button:hover {
+  box-shadow: #54fff7 0 3px 8px;
+}
+
+input[type="text"] {
+  width: 20vw;
+  height: 6vh;
+  padding: 6px 6px;
+  margin: 6vh 2vw;
+  box-sizing: border-box;
+  font-weight: 800;
+  color: #001514;
+}
+
+.intexte {
+  width: 70vw;
+  margin-left: 15vw;
+}
+
+button {
+  background-color: #54fff7;
+  border-radius: 6px;
+  box-shadow: white;
+  color: black;
+  cursor: pointer;
+  height: 5vh;
+  padding: 0.1vw;
+  text-align: center;
+  width: 10vw;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-left: 4vw;
+}
+
+.create {
+  background-color: #54fff7;
+  border-radius: 6px;
+  box-shadow: white;
+  color: black;
+  cursor: pointer;
+  height: 6vh;
+  padding: 0.1vw;
+  text-align: center;
+  width: 20vw;
+  border: 1px solid white;
+  transition: box-shadow 0.2s;
+  margin-left: 40vw;
+  margin-top: 5vh;
+  margin-bottom: 10vh;
+  font-weight: 800;
+  font-size: 1.2rem;
+}
