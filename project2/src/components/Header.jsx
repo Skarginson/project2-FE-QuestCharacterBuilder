@@ -1,9 +1,12 @@
 import logoQuest from "../assets/logo_white.png";
+import { Link } from "react-router-dom";
 
 function Header() {
   return (
     <div className="header">
-      <img src={logoQuest} alt="logo Quest"></img>
+      <Link to="/">
+        <img src={logoQuest} alt="logo Quest"></img>
+      </Link>
     </div>
   );
 }

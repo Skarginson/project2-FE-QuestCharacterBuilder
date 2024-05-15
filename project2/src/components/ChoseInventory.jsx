@@ -1,4 +1,4 @@
-import "./ChoseInventory.css";
+import "../ChoseInventory.css";
 import { useState } from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
@@ -10,10 +10,7 @@ function GearCard({ item, onClick, isSelected }) {
       className="gearCard"
       onClick={() => onClick(item)}
       style={{
-        border: isSelected ? "2px solid blue" : "1px solid grey",
-        cursor: "pointer",
-        margin: "10px",
-        padding: "10px",
+        border: isSelected ? "3px solid #54fff7" : "1px solid grey",
       }}
     >
       <h3>{item.name}</h3>
@@ -79,8 +76,8 @@ function ChooseInventory({
   console.log(newForm);
   return (
     <div>
+      <h2 className="titleSelectGear">Select a Gear Item</h2>
       <div className="cardContainer">
-        <h2 className="titleSelectGear">Select a Gear Item</h2>
         {gearItems.map((item) =>
           selectedGear ? (
             item === selectedGear && (
@@ -100,12 +97,14 @@ function ChooseInventory({
             />
           )
         )}
-        {selectedGear && (
-          <button onClick={handleResetSelection}>I've changed my mind!</button>
-        )}
       </div>
-      <div>
-        <h2>Add More Items</h2>
+      {selectedGear && (
+        <button className="changeMind" onClick={handleResetSelection}>
+          I've changed my mind!
+        </button>
+      )}
+      <h2>Add More Items</h2>
+      <div className="intexte">
         <input
           type="text"
           value={newItemName}
@@ -129,6 +128,7 @@ function ChooseInventory({
         ))}
       </div>
       <button
+        className="create"
         onClick={() => {
           handleInventorySubmit();
           handleSubmit(newForm);
