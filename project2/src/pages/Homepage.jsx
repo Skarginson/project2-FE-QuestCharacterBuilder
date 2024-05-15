@@ -10,7 +10,7 @@ import axios from "axios";
 import imgEx from "../assets/Projet2img.jpg";
 
 function Homepage({ baseData, setBaseData }) {
-  const [charInfo, setCharInfo] = useState();
+  const [charInfo, setCharInfo] = useState([]);
   useEffect(() => {
     async function getCharInfo() {
       const response = await axios.get(`${API_BASE_URL}/characters`);
