@@ -1,0 +1,34 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.holdCard {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100vw;
+  margin-top: 10vh;
+}
+
+.homeCard {
+  width: 15vw;
+  height: 20vw;
+  background-color: white;
+  border-radius: 12%;
+  padding: 1vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  margin: 4vw;
+}
+
+.homeCard h1 {
+  color: #001514;
+  padding: 0;
+  margin: 0;
+}
+
+.homeCard img {
+  width: 80%;
+}

@@ -5,7 +5,7 @@ import Create from "./pages/Create";
 // import Details from "./pages/Details";
 // import Rules from "./pages/Rules";
 import Homepage from "./pages/Homepage";
-import { API_BASE_URL } from "../consts";
+import { API_BASE_URL } from "./consts";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
