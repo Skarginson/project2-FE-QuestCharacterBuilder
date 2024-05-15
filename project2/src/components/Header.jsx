@@ -1,4 +1,4 @@
-import logoQuest from "../assets/logoQuest.png";
+import logoQuest from "../assets/logo_white.png";
 
 function Header() {
   return (
