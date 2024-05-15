@@ -19,27 +19,29 @@ function Homepage() {
     getCharInfo();
   }, []);
   function handleDeleteCard(id) {
-    setCharInfo(charInfo.filter(char => char.id !== id));
+    setCharInfo(charInfo.filter((char) => char.id !== id));
   }
   return (
     <>
       <Header />
       <Sidebar />
       <div className="holdCard">
-        <Link to="/Create" className="homeCard">
+        <Link to="/create" className="homeCard">
           Create
         </Link>
         {charInfo.map((char) => (
-          <CharacterCard
-            key={char.id}
-            id={char.id}
-            name={char.name}
-            imageSrc={char.imageSrc}
-            author={char.author}
-            deleteCard={() => handleDeleteCard(char.id)}
-          />
+          <Link to={`/details/${char.id}`} key={char.id} className="homeCard">
+            <CharacterCard
+              key={char.id}
+              id={char.id}
+              name={char.name}
+              imageSrc={char.imageSrc}
+              author={char.author}
+              deleteCard={() => handleDeleteCard(char.id)}
+            />
+          </Link>
         ))}
-        <CharacterCard name={"name"} imageSrc={imgEx} author={"author"}/>
+        <CharacterCard name={"name"} imageSrc={imgEx} author={"author"} />
       </div>
       <Footer />
     </>
