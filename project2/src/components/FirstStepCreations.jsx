@@ -1,8 +1,5 @@
 import { useState } from "react";
 import "../FirstStepCreations.css";
-import Header from "../components/Header";
-import Footer from "../components/Footer";
-import Sidebar from "../components/Sidebar";
 
 function FirstStepCreations({
   baseData,
@@ -14,9 +11,6 @@ function FirstStepCreations({
   console.log("changement", newForm);
   return (
     <>
-      <Header />
-      <Sidebar />
-
       <div className="form-g" order="3">
         <h1>Tell us more about you ...</h1>
         <p>
@@ -125,7 +119,6 @@ function FirstStepCreations({
           .
         </p>
       </div>
-      <Footer />
     </>
   );
 }

@@ -1,3 +1,7 @@
+* {
+  margin: 0;
+}
+
 .footer {
   width: 100vw;
   height: 4vh;
@@ -10,7 +14,6 @@
 .header {
   width: 100vw;
   height: 10vh;
-  background-color: white;
   position: absolute;
   top: 0px;
   text-align: center;
@@ -26,9 +29,9 @@
   background-color: #001514;
   position: absolute;
   top: 16vh;
-  border: solid 1px white;
   margin-left: -16vw;
   transition: margin-left 300ms ease;
+  z-index: 3;
 }
 
 .sidebarOpen {
@@ -37,20 +40,24 @@
   background-color: #001514;
   position: absolute;
   top: 16vh;
-  border: solid 1px white;
   transition: margin-left 300ms ease;
+  z-index: 3;
 }
 
 .sidebarClosed button {
   width: 2vw;
   margin-left: 16vw;
   background-color: #001514;
+  order: solid 1px white;
+  z-index: 3;
 }
 
 .sidebarOpen button {
   width: 2vw;
   margin-left: 16vw;
   background-color: #001514;
+  border: solid 1px white;
+  z-index: 3;
 }
 
 .sidebar button:hover {
