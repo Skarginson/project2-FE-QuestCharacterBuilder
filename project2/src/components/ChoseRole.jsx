@@ -16,8 +16,8 @@ function ChoseRole({ baseData, handleChange }) {
                 <p className="roleDescription">{el.description}</p>
                 <input
                   type="radio"
-                  value={el.name}
-                  name="role"
+                  value={el.id}
+                  name="roleId"
                   onChange={handleChange}
                 />
               </div>
