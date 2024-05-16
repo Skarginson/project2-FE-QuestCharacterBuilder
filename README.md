@@ -1,5 +1,3 @@
-# project2-FE
+# Project 2
 
-Front end pour le projet 2 Ironhack Avril 2024. 
-
-WIP
+Project 2 Ironhack avril 2024.
