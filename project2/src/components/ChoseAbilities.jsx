@@ -1,4 +1,24 @@
+import { useNavigate, useParams } from "react-router-dom";
+import { API_BASE_URL } from "../consts";
+import axios from "axios";
+
 function ChoseAbilities({ baseData, handleChange, newForm }) {
+  const navigate = useNavigate();
+  const { characterId } = useParams();
+  async function updateAbilities() {
+    try {
+      await axios.put(`${API_BASE_URL}/characters/${characterId}`, {
+        ...newForm,
+        role: newForm.role.split(",")[1],
+        // abilities: baseData.abilities.filter((ability) => {
+        //   return newForm.abilities.includes(ability.name);
+        // }),
+      });
+      navigate(`/details/${characterId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <div className="abilitiesSelection">
@@ -31,11 +51,15 @@ function ChoseAbilities({ baseData, handleChange, newForm }) {
                     value={el.name}
                     name="abilities"
                     onChange={(e) => handleChange(e, true)}
+                    checked={newForm.abilities.includes(el.name)}
                   />
                 </li>
               </ul>
             );
           })}
+        {characterId && (
+          <button onClick={updateAbilities}>update abilities</button>
+        )}
       </div>
     </>
   );
