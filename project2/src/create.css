@@ -45,7 +45,7 @@
   text-align: center;
 }
 
-span {
+.editable {
   font-size: 1rem;
   font-weight: 500;
   width: 12vw;
@@ -58,7 +58,7 @@ span {
   border-bottom: solid 1px white;
 }
 
-span:hover {
+.editable:hover {
   background-color: #344140;
   color: #bebec4;
 }

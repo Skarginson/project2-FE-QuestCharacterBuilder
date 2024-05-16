@@ -130,6 +130,7 @@ function App() {
               baseData={baseData}
               newForm={newForm}
               setNewForm={setNewForm}
+              handleChange={handleChange}
             />
           }
         />

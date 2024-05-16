@@ -38,6 +38,7 @@ function Create({
           <p>
             What's your name ?{" "}
             <span
+              className="editable"
               data-name="author"
               contentEditable="true"
               onInput={handleChange}
