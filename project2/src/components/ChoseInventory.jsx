@@ -63,19 +63,6 @@ function ChooseInventory({
     setSelectedGear(null);
   };
 
-  console.log("newForm", newForm);
-  // async function handleSubmit(newForm) {
-  //   try {
-  //     await axios.post(`${API_BASE_URL}/characters`, {
-  //       ...newForm,
-  //       inventory: [selectedGear, ...newItems],
-  //     });
-  //     navigate("/");
-  //   } catch (err) {
-  //     setErrorMsg(err.message);
-  //   }
-  // }
-
   const handleSubmit = async (newForm) => {
     const updatedCharacterData = {
       ...newForm,

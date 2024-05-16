@@ -8,7 +8,7 @@ function Sidebar() {
       <div className={!isSidebarOpened ? "sidebarClosed" : "sidebarOpen"}>
         <div className="sidebarFlex">
           <Link to="/About">About the project</Link>
-          <Link to="/Rules">About the page</Link>
+          <Link to="/Rules">About Quest</Link>
         </div>
         <button
           onClick={() =>

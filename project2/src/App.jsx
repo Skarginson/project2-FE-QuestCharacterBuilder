@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
-// import About from "./pages/About";
+import About from "./pages/About";
 import Create from "./pages/Create";
 import Details from "./pages/Details";
 import Rules from "./pages/Rules";
@@ -120,7 +120,7 @@ function App() {
             />
           }
         />
-        {/* <Route path="/About" element={<About />} />*/}
+        <Route path="/About" element={<About />} />
         <Route path="/Rules" element={<Rules />} />
         <Route
           path="/Details/:characterId"
