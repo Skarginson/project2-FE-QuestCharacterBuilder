@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import { API_BASE_URL } from "./consts";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ChoseAbilities from "./components/ChoseAbilities";
 import ChoseInventory from "./components/ChoseInventory";
 
 function App() {
@@ -126,10 +127,31 @@ function App() {
           path="/Details/:characterId"
           element={
             <Details
+              setNewForm={setNewForm}
               setBaseData={setBaseData}
               baseData={baseData}
               newForm={newForm}
-              setNewForm={setNewForm}
+              handleChange={handleChange}
+            />
+          }
+        />
+        <Route
+          path="/edit-abilities/:characterId"
+          element={
+            <ChoseAbilities
+              baseData={baseData}
+              newForm={newForm}
+              handleChange={handleChange}
+            />
+          }
+        />
+        <Route
+          path="/edit-abilities/:characterId"
+          element={
+            <ChoseAbilities
+              baseData={baseData}
+              newForm={newForm}
+              handleChange={handleChange}
             />
           }
         />
