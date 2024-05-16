@@ -71,15 +71,22 @@ function ChooseInventory({
         inventory: [selectedGear, ...newItems],
       });
       navigate("/");
-    } catch (err) {
-      setErrorMsg(err.message);
+    } catch (error) {
+      console.error("Failed to process your request:", error);
     }
   }
 
-  console.log(newForm);
+  console.log("newForm", newForm);
   return (
     <>
-      <h2 className="titleSelectGear">Select a Gear Item</h2>
+      <h2 className="titleSelectGear">
+        {characterId ? "Update inventory" : "Select a Gear Item"}
+      </h2>
+      <p>
+        {characterId
+          ? ""
+          : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
+      </p>
 
       <div className="cardContainer">
         {gearItems.map((item) =>
