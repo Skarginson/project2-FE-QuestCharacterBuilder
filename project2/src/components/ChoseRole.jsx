@@ -1,9 +1,16 @@
 import Image from "../assets/Projet2img.jpg";
 
 function ChoseRole({ baseData, handleChange, newForm }) {
-  console.log(newForm)
+  console.log(newForm);
   return (
     <>
+      <h1>Chose your Role !</h1>
+      <p>
+        Your role gives you a unique set of abilities and is a big part of your
+        character’s identity. <br />
+        This is just a brief overview of Quest's eight roles; you can see the
+        abilities of your chosen role in the next step !
+      </p>
       <div className="roleSelection" order="1">
         {baseData.roles.map((el) => {
           return (
@@ -21,7 +28,6 @@ function ChoseRole({ baseData, handleChange, newForm }) {
                   name="role"
                   onChange={handleChange}
                 />
-
               </div>
             </div>
           );

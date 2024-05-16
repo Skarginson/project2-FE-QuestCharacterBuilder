@@ -1,6 +1,6 @@
 .details {
   text-align: justify;
-  width: 40vw;
+  width: 38vw;
   padding: 2vw;
 }
 
@@ -34,4 +34,41 @@ p {
 
 .leftSide {
   display: flex;
+}
+
+.headDetails {
+  display: flex;
+}
+
+.headDetails button {
+  background-color: #54fff7;
+  border-radius: 6px;
+  box-shadow: white;
+  color: black;
+  cursor: pointer;
+  height: 3vh;
+  padding: 0.1vw;
+  text-align: center;
+  width: 4vw;
+  border: 0;
+  transition: box-shadow 0.2s;
+  margin-left: 2vw;
+}
+
+.editable {
+  font-size: 1rem;
+  font-weight: 500;
+  width: 12vw;
+  line-height: 1.4;
+  display: inline-block;
+  color: #54fff7;
+  padding: 0.2%;
+  margin: 0.2%;
+  border-radius: 6px;
+  border-bottom: solid 1px white;
+}
+
+.editable:hover {
+  background-color: #344140;
+  color: #bebec4;
 }
