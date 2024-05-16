@@ -1,8 +1,12 @@
-import { Link } from "react-router-dom";
-
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+import "./Rules.css";
 function Rules() {
   return (
     <>
+      <Header />
+      <Sidebar />
       <div className="rules">
         <h1>What is Quest ?</h1>
         <p>
@@ -40,11 +44,15 @@ function Rules() {
         <p>
           This work uses material from the Quest Creators Resource. The Quest
           Creators Resource by The Adventure Guild, LLC is licensed under CC BY
-          4.0. For more information about Quest, please visit
-          {/* <a href="www.google.com" target="_blank">google</a>
-          <Link to {{ pathname: "www.adventure.game" }} target="_blank">www.adventure.game</Link>. Additionally, please read Quest’s Community Guidelines to helpcreate experiences that are positive and fun. */}
+          4.0. For more information about Quest, please visit {""}
+          <a href="https://www.adventure.game" target="_blank">
+            www.adventure.game
+          </a>
+          . Additionally, please read Quest’s Community Guidelines to helpcreate
+          experiences that are positive and fun.
         </p>
       </div>
+      <Footer />
     </>
   );
 }
