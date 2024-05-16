@@ -3,11 +3,12 @@ import { Routes, Route } from "react-router-dom";
 // import About from "./pages/About";
 import Create from "./pages/Create";
 import Details from "./pages/Details";
-// import Rules from "./pages/Rules";
+import Rules from "./pages/Rules";
 import Homepage from "./pages/Homepage";
 import { API_BASE_URL } from "./consts";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ChoseInventory from "./components/ChoseInventory";
 
 function App() {
   const emptyForm = {
@@ -103,11 +104,24 @@ function App() {
               handleChange={handleChange}
               newForm={newForm}
               setNewForm={setNewForm}
+              emptyForm={emptyForm}
             />
           }
         />
-        {/* <Route path="/About" element={<About />} />
-        <Route path="/Rules" element={<Rules />} />*/}
+        <Route
+          path="/edit-inventory/:characterId"
+          element={
+            <ChoseInventory
+              baseData={baseData}
+              setBaseData={setBaseData}
+              newForm={newForm}
+              setNewForm={setNewForm}
+              emptyForm={emptyForm}
+            />
+          }
+        />
+        {/* <Route path="/About" element={<About />} />*/}
+        <Route path="/Rules" element={<Rules />} />
         <Route
           path="/Details/:characterId"
           element={
@@ -115,6 +129,7 @@ function App() {
               setBaseData={setBaseData}
               baseData={baseData}
               newForm={newForm}
+              setNewForm={setNewForm}
             />
           }
         />
