@@ -71,6 +71,7 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
     setNewForm({
       ...newForm,
       ...detailsData,
+      abilities: detailsData.abilities.map((ability) => ability.name),
       inventory: detailsData.inventory || [],
     });
     navigate(`/edit-inventory/${characterId}`);
