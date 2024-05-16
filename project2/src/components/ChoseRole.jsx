@@ -1,7 +1,23 @@
 import Image from "../assets/Projet2img.jpg";
+import { useNavigate, useParams } from "react-router-dom";
+import { API_BASE_URL } from "../consts";
+import axios from "axios";
 
-function ChoseRole({ baseData, handleChange, newForm }) {
+function ChoseRole({ baseData, handleChange, newForm, edit }) {
+  const navigate = useNavigate();
   console.log(newForm);
+  const { characterId } = useParams();
+  async function updateRole() {
+    try {
+      await axios.put(`${API_BASE_URL}/characters/${characterId}`, {
+        ...newForm,
+        role: newForm.role.split(",")[0],
+      });
+      navigate(`/edit-abilities/${characterId}`);
+    } catch (err) {
+      console.log(err);
+    }
+  }
   return (
     <>
       <h1>Chose your Role !</h1>
@@ -33,6 +49,7 @@ function ChoseRole({ baseData, handleChange, newForm }) {
           );
         })}
       </div>
+      {edit && <button onClick={updateRole}>update Role</button>}
     </>
   );
 }

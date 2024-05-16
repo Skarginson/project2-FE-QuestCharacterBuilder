@@ -106,6 +106,7 @@ function App() {
               newForm={newForm}
               setNewForm={setNewForm}
               emptyForm={emptyForm}
+              edit={false}
             />
           }
         />

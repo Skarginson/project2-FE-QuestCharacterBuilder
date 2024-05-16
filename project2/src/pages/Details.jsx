@@ -6,11 +6,19 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
 import { Link, useNavigate, useParams } from "react-router-dom";
+import ChoseRole from "../components/ChoseRole";
 
-function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
+function CharacterDetails({
+  baseData,
+  setBaseData,
+  newForm,
+  setNewForm,
+  handleChange,
+}) {
   const [detailsData, setDetailsData] = useState({});
   const [errorMsg, setErrorMsg] = useState(null);
   const [edit, setEdit] = useState(false);
+  const [changeRole, setChangeRole] = useState(0);
   const [cursorPos, setCursorPos] = useState(0);
   const { characterId } = useParams();
   const navigate = useNavigate();
@@ -80,7 +88,8 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
     <div>
       <Header />
       <Sidebar />
-      {detailsData ? (
+
+      {detailsData && changeRole === 0 ? (
         <>
           {" "}
           <div className="cadre">
@@ -135,7 +144,28 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
                   tall. I'm the party's{" "}
                   <span>
                     {edit ? (
-                      <Link to="">detailsData.role</Link>
+                      <button
+                        onClick={() =>
+                          setNewForm((newForm) => {
+                            setChangeRole(1);
+                            const role = baseData.roles.find((role) => {
+                              return (role.name = detailsData.role);
+                            });
+                            return {
+                              ...newForm,
+                              ...detailsData,
+                              abilities: detailsData.abilities.map(
+                                (ability) => {
+                                  return ability.name;
+                                }
+                              ),
+                              role: `${role.id},${role.name}`,
+                            };
+                          })
+                        }
+                      >
+                        detailsData.role
+                      </button>
                     ) : (
                       detailsData.role
                     )}
@@ -263,16 +293,27 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
                   const role = baseData.roles.find((role) => {
                     return (role.name = detailsData.role);
                   });
-                  setNewForm((newForm) => {
-                    return {
-                      ...newForm,
-                      ...detailsData,
-                      abilities: detailsData.abilities.map((ability) => {
-                        return ability.name;
-                      }),
-                      role: `${role.id},${role.name}`,
-                    };
-                  });
+                  {
+                    !edit
+                      ? setNewForm((newForm) => {
+                          return {
+                            ...newForm,
+                            ...detailsData,
+                            abilities: detailsData.abilities.map((ability) => {
+                              return ability.name;
+                            }),
+                            role: `${role.id},${role.name}`,
+                          };
+                        })
+                      : setNewForm((newForm) => {
+                          return {
+                            ...newForm,
+                            ...detailsData,
+                            abilities: [],
+                            role: `${role.id},${role.name}`,
+                          };
+                        });
+                  }
                   navigate(`/edit-abilities/${characterId}`);
                 }}
               >
@@ -300,6 +341,18 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
         <p>Error loading character details: {errorMsg}</p>
       ) : (
         <p>Loading...</p>
+      )}
+      {changeRole === 1 && (
+        <>
+          <ChoseRole
+            baseData={baseData}
+            setBaseData={setBaseData}
+            handleChange={handleChange}
+            newForm={newForm}
+            setNewForm={setNewForm}
+            edit={true}
+          />
+        </>
       )}
       <Footer />
     </div>
