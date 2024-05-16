@@ -6,11 +6,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
 import { useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function CharacterDetails({ baseData, setBaseData, newForm }) {
+function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
   const [detailsData, setDetailsData] = useState({});
   const [errorMsg, setErrorMsg] = useState(null);
   const { characterId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getDetailsData() {
@@ -31,7 +33,14 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
     getDetailsData();
   }, [characterId]);
 
-  console.log("Inventory", detailsData.inventory);
+  const handleEditInventory = () => {
+    setNewForm({
+      ...newForm,
+      ...detailsData,
+      inventory: detailsData.inventory || [],
+    });
+    navigate(`/edit-inventory/${characterId}`);
+  };
 
   return (
     <div>
@@ -97,6 +106,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
               ) : (
                 <p>No items found</p>
               )}
+              <button onClick={handleEditInventory}>Edit Inventory</button>
             </div>
           </div>
         </>
