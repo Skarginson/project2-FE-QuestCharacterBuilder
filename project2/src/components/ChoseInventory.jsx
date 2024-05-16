@@ -101,35 +101,17 @@ function ChooseInventory({ baseData, setBaseData, newForm, setNewForm }) {
     }
   };
 
-  // const handleUpdateItem = (itemIndex, newItem) => {
-  //   const updatedInventory = newForm.inventory.map((item, index) => {
-  //     if (index === itemIndex) {
-  //       return newItem;
-  //     }
-  //     return item;
-  //   });
-  //   setNewForm({
-  //     ...newForm,
-  //     inventory: updatedInventory,
-  //   });
-  // };
-
-  // const handleDeleteItem = (itemIndex) => {
-  //   const updatedInventory = newForm.inventory.filter(
-  //     (_, index) => index !== itemIndex
-  //   );
-  //   setNewForm({
-  //     ...newForm,
-  //     inventory: updatedInventory,
-  //   });
-  // };
-
   console.log("newForm", newForm);
   return (
     <>
       <h2 className="titleSelectGear">
         {characterId ? "Update inventory" : "Select a Gear Item"}
       </h2>
+      <p>
+        {characterId
+          ? ""
+          : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
+      </p>
 
       <div className="cardContainer">
         {gearItems.map((item) =>

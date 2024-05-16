@@ -16,9 +16,20 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
       <Sidebar />
       {step === 0 && (
         <div className="firstpage">
-          <h1>Create tour Character</h1> <p>description</p>{" "}
+          <h1>Create your Character</h1>
           <p>
-            Who is the creator ?{" "}
+            Hey there ! Welcome to our character sheet creator for the quest
+            TTRPG !<br />
+            We'll guide you through you character creation so that you can be
+            all set to play !<br />
+            Just like in the book version, you'll have to chose your roles,
+            abilities, complete your character profile andpick your starting
+            items.
+            <br />
+            Ready ? Let's start !
+          </p>{" "}
+          <p>
+            What's your name ?{" "}
             <span
               data-name="author"
               contentEditable="true"
