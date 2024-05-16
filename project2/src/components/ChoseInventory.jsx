@@ -80,7 +80,6 @@ function ChooseInventory({
   return (
     <>
       <h2 className="titleSelectGear">Select a Gear Item</h2>
-
       <div className="cardContainer">
         {gearItems.map((item) =>
           selectedGear ? (

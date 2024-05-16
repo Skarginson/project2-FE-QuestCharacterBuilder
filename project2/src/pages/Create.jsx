@@ -20,6 +20,7 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
           <p>
             Who is the creator ?{" "}
             <span
+              className="editable"
               data-name="author"
               contentEditable="true"
               onInput={handleChange}

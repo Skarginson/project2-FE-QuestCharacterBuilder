@@ -115,6 +115,7 @@ function App() {
               setBaseData={setBaseData}
               baseData={baseData}
               newForm={newForm}
+              handleChange={handleChange}
             />
           }
         />
