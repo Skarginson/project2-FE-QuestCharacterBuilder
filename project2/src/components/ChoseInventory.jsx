@@ -1,8 +1,8 @@
 import "../ChoseInventory.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function GearCard({ item, onClick, isSelected }) {
   return (
@@ -19,21 +19,17 @@ function GearCard({ item, onClick, isSelected }) {
   );
 }
 
-function ChooseInventory({
-  baseData,
-  setBaseData,
-  handleChange,
-  newForm,
-  setNewForm,
-}) {
+function ChooseInventory({ baseData, setBaseData, newForm, setNewForm }) {
   const [selectedGear, setSelectedGear] = useState(null);
   const [newItems, setNewItems] = useState([]);
   const [newItemName, setNewItemName] = useState("");
   const [newItemDescription, setNewItemDescription] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
+
   const gearItems =
     baseData.treasures?.filter((item) => item.rarity === "gear") || [];
+  const { characterId } = useParams();
 
   const handleSelectGear = (item) => {
     setSelectedGear(item);
@@ -56,25 +52,56 @@ function ChooseInventory({
     setSelectedGear(null);
   };
 
-  const handleInventorySubmit = () => {
-    setNewForm((newForm) => ({
+  useEffect(() => {
+    if (baseData && baseData.characters) {
+      const characterData = baseData.characters.find(
+        (char) => char.id === characterId
+      );
+      if (characterData) {
+        setNewForm({
+          ...newForm,
+          inventory: characterData.inventory,
+        });
+      }
+    }
+  }, [characterId, baseData, setNewForm]);
+
+  // async function handleSubmit(newForm) {
+  //   try {
+  //     await axios.post(`${API_BASE_URL}/characters`, {
+  //       ...newForm,
+  //       inventory: [selectedGear, ...newItems],
+  //     });
+  //     navigate("/");
+  //   } catch (err) {
+  //     setErrorMsg(err.message);
+  //   }
+  // }
+
+  const handleSubmit = async (newForm) => {
+    const updatedCharacterData = {
       ...newForm,
       inventory: [selectedGear, ...newItems],
-    }));
-  };
-
-  async function handleSubmit(newForm) {
-    console.log("console log before try", newForm);
+    };
     try {
-      await axios.post(`${API_BASE_URL}/characters`, {
-        ...newForm,
-        inventory: [selectedGear, ...newItems],
-      });
+      if (characterId) {
+        await axios.put(
+          `${API_BASE_URL}/characters/${characterId}`,
+          updatedCharacterData
+        );
+      } else {
+        await axios.post(`${API_BASE_URL}/characters`, {
+          ...newForm,
+          inventory: [selectedGear, ...newItems],
+        });
+      }
       navigate("/");
     } catch (error) {
       console.error("Failed to process your request:", error);
+    } catch (error) {
+      console.error("Failed to process your request:", error);
     }
-  }
+  };
 
   console.log("newForm", newForm);
   return (
@@ -114,7 +141,7 @@ function ChooseInventory({
           I've changed my mind!
         </button>
       )}
-      <h2>Add More Items</h2>
+      <h2>{characterId ? "Edit Additional Items" : "Add More Items"}</h2>
       <div className="intexte">
         <input
           type="text"
@@ -141,11 +168,10 @@ function ChooseInventory({
       <button
         className="create"
         onClick={() => {
-          // handleInventorySubmit();
           handleSubmit(newForm);
         }}
       >
-        Create your Character
+        {characterId ? "Update Character" : "Create Character"}{" "}
       </button>
     </>
   );

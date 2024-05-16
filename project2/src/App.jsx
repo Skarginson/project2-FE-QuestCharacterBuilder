@@ -8,6 +8,7 @@ import Homepage from "./pages/Homepage";
 import { API_BASE_URL } from "./consts";
 import axios from "axios";
 import { useEffect, useState } from "react";
+import ChoseInventory from "./components/ChoseInventory";
 
 function App() {
   const emptyForm = {
@@ -106,6 +107,17 @@ function App() {
             />
           }
         />
+        <Route
+          path="/edit-inventory/:characterId"
+          element={
+            <ChoseInventory
+              baseData={baseData}
+              setBaseData={setBaseData}
+              newForm={newForm}
+              setNewForm={setNewForm}
+            />
+          }
+        />
         {/* <Route path="/About" element={<About />} />
         <Route path="/Rules" element={<Rules />} />*/}
         <Route
@@ -115,6 +127,7 @@ function App() {
               setBaseData={setBaseData}
               baseData={baseData}
               newForm={newForm}
+              setNewForm={setNewForm}
             />
           }
         />
