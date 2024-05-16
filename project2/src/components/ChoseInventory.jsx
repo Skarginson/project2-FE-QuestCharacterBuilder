@@ -87,6 +87,11 @@ function ChooseInventory({
           ? ""
           : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
       </p>
+      <p>
+        {characterId
+          ? ""
+          : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
+      </p>
 
       <div className="cardContainer">
         {gearItems.map((item) =>
