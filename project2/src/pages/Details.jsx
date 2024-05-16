@@ -6,13 +6,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
 import { Link, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
-function CharacterDetails({ baseData, setBaseData, newForm }) {
+function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
   const [detailsData, setDetailsData] = useState({});
   const [errorMsg, setErrorMsg] = useState(null);
   const [edit, setEdit] = useState(false);
   const [cursorPos, setCursorPos] = useState(0);
   const { characterId } = useParams();
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function getDetailsData() {
@@ -66,9 +68,14 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
     setEdit(false);
   }
 
-  console.log("Inventory", detailsData.inventory);
-  console.log("edit", edit);
-  console.log("dataDetails", detailsData);
+  const handleEditInventory = () => {
+    setNewForm({
+      ...newForm,
+      ...detailsData,
+      inventory: detailsData.inventory || [],
+    });
+    navigate(`/edit-inventory/${characterId}`);
+  };
 
   return (
     <div>
@@ -265,6 +272,7 @@ function CharacterDetails({ baseData, setBaseData, newForm }) {
               ) : (
                 <p>No items found</p>
               )}
+              <button onClick={handleEditInventory}>Edit Inventory</button>
             </div>
           </div>
         </>

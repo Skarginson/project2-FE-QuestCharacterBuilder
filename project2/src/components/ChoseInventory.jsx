@@ -1,8 +1,8 @@
 import "../ChoseInventory.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 function GearCard({ item, onClick, isSelected }) {
   return (
@@ -22,19 +22,26 @@ function GearCard({ item, onClick, isSelected }) {
 function ChooseInventory({
   baseData,
   setBaseData,
-  handleChange,
   newForm,
   setNewForm,
+  emptyForm,
 }) {
-  const [selectedGear, setSelectedGear] = useState(null);
-  const [newItems, setNewItems] = useState([]);
+  const gear = newForm.inventory[0];
+  const [selectedGear, setSelectedGear] = useState(
+    gear
+      ? baseData.treasures.find((inventory) => inventory.name === gear.name)
+      : null
+  );
+  const [newItems, setNewItems] = useState(newForm.inventory.slice(1));
   const [newItemName, setNewItemName] = useState("");
   const [newItemDescription, setNewItemDescription] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
+  const { characterId } = useParams();
+
+  console.log("gear", gear, "baseData", baseData);
   const gearItems =
     baseData.treasures?.filter((item) => item.rarity === "gear") || [];
-
   const handleSelectGear = (item) => {
     setSelectedGear(item);
   };
@@ -56,30 +63,60 @@ function ChooseInventory({
     setSelectedGear(null);
   };
 
-  const handleInventorySubmit = () => {
-    setNewForm((newForm) => ({
+  console.log("newForm", newForm);
+  // async function handleSubmit(newForm) {
+  //   try {
+  //     await axios.post(`${API_BASE_URL}/characters`, {
+  //       ...newForm,
+  //       inventory: [selectedGear, ...newItems],
+  //     });
+  //     navigate("/");
+  //   } catch (err) {
+  //     setErrorMsg(err.message);
+  //   }
+  // }
+
+  const handleSubmit = async (newForm) => {
+    const updatedCharacterData = {
       ...newForm,
       inventory: [selectedGear, ...newItems],
-    }));
+    };
+    try {
+      if (characterId) {
+        await axios.put(
+          `${API_BASE_URL}/characters/${characterId}`,
+          updatedCharacterData
+        );
+      } else {
+        await axios.post(`${API_BASE_URL}/characters`, {
+          ...newForm,
+          inventory: [selectedGear, ...newItems],
+        });
+      }
+      setNewForm(emptyForm);
+      navigate("/");
+    } catch (error) {
+      console.error("Failed to process your request:", error);
+    }
   };
 
-  async function handleSubmit(newForm) {
-    console.log("console log before try", newForm);
-    try {
-      await axios.post(`${API_BASE_URL}/characters`, {
-        ...newForm,
-        inventory: [selectedGear, ...newItems],
-      });
-      navigate("/");
-    } catch (err) {
-      setErrorMsg(err.message);
-    }
-  }
-
-  console.log(newForm);
+  console.log("newForm", newForm);
   return (
     <>
-      <h2 className="titleSelectGear">Select a Gear Item</h2>
+      <h2 className="titleSelectGear">
+        {characterId ? "Update inventory" : "Select a Gear Item"}
+      </h2>
+      <p>
+        {characterId
+          ? ""
+          : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
+      </p>
+      <p>
+        {characterId
+          ? ""
+          : "Your character is almost finished. Time to pick what you carry! You may choose one useful item from this list. You may additionnally, you may add three common weapons."}
+      </p>
+
       <div className="cardContainer">
         {gearItems.map((item) =>
           selectedGear ? (
@@ -106,7 +143,7 @@ function ChooseInventory({
           I've changed my mind!
         </button>
       )}
-      <h2>Add More Items</h2>
+      <h2>{characterId ? "Edit Additional Items" : "Add More Items"}</h2>
       <div className="intexte">
         <input
           type="text"
@@ -133,11 +170,10 @@ function ChooseInventory({
       <button
         className="create"
         onClick={() => {
-          // handleInventorySubmit();
           handleSubmit(newForm);
         }}
       >
-        Create your Character
+        {characterId ? "Update Character" : "Create Character"}{" "}
       </button>
     </>
   );
