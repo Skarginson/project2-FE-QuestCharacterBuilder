@@ -8,7 +8,14 @@ import Sidebar from "../components/Sidebar";
 import "../create.css";
 import { useState } from "react";
 
-function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
+function Create({
+  baseData,
+  setBaseData,
+  handleChange,
+  newForm,
+  setNewForm,
+  emptyForm,
+}) {
   const [step, setStep] = useState(0);
   return (
     <>
@@ -63,6 +70,7 @@ function Create({ baseData, setBaseData, handleChange, newForm, setNewForm }) {
           handleChange={handleChange}
           newForm={newForm}
           setNewForm={setNewForm}
+          emptyForm={emptyForm}
         />
       )}
       {step === 3 && (

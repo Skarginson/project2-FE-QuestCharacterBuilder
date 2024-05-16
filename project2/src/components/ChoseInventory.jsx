@@ -19,18 +19,29 @@ function GearCard({ item, onClick, isSelected }) {
   );
 }
 
-function ChooseInventory({ baseData, setBaseData, newForm, setNewForm }) {
-  const [selectedGear, setSelectedGear] = useState(null);
-  const [newItems, setNewItems] = useState([]);
+function ChooseInventory({
+  baseData,
+  setBaseData,
+  newForm,
+  setNewForm,
+  emptyForm,
+}) {
+  const gear = newForm.inventory[0];
+  const [selectedGear, setSelectedGear] = useState(
+    gear
+      ? baseData.treasures.find((inventory) => inventory.name === gear.name)
+      : null
+  );
+  const [newItems, setNewItems] = useState(newForm.inventory.slice(1));
   const [newItemName, setNewItemName] = useState("");
   const [newItemDescription, setNewItemDescription] = useState("");
   const [errorMsg, setErrorMsg] = useState(null);
   const navigate = useNavigate();
-
-  const gearItems =
-    baseData.treasures?.filter((item) => item.rarity === "gear") || [];
   const { characterId } = useParams();
 
+  console.log("gear", gear, "baseData", baseData);
+  const gearItems =
+    baseData.treasures?.filter((item) => item.rarity === "gear") || [];
   const handleSelectGear = (item) => {
     setSelectedGear(item);
   };
@@ -52,20 +63,7 @@ function ChooseInventory({ baseData, setBaseData, newForm, setNewForm }) {
     setSelectedGear(null);
   };
 
-  useEffect(() => {
-    if (baseData && baseData.characters) {
-      const characterData = baseData.characters.find(
-        (char) => char.id === characterId
-      );
-      if (characterData) {
-        setNewForm({
-          ...newForm,
-          inventory: characterData.inventory,
-        });
-      }
-    }
-  }, [characterId, baseData, setNewForm]);
-
+  console.log("newForm", newForm);
   // async function handleSubmit(newForm) {
   //   try {
   //     await axios.post(`${API_BASE_URL}/characters`, {
@@ -95,9 +93,8 @@ function ChooseInventory({ baseData, setBaseData, newForm, setNewForm }) {
           inventory: [selectedGear, ...newItems],
         });
       }
+      setNewForm(emptyForm);
       navigate("/");
-    } catch (error) {
-      console.error("Failed to process your request:", error);
     } catch (error) {
       console.error("Failed to process your request:", error);
     }

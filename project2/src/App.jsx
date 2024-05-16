@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 // import About from "./pages/About";
 import Create from "./pages/Create";
 import Details from "./pages/Details";
-// import Rules from "./pages/Rules";
+import Rules from "./pages/Rules";
 import Homepage from "./pages/Homepage";
 import { API_BASE_URL } from "./consts";
 import axios from "axios";
@@ -104,6 +104,7 @@ function App() {
               handleChange={handleChange}
               newForm={newForm}
               setNewForm={setNewForm}
+              emptyForm={emptyForm}
             />
           }
         />
@@ -115,11 +116,12 @@ function App() {
               setBaseData={setBaseData}
               newForm={newForm}
               setNewForm={setNewForm}
+              emptyForm={emptyForm}
             />
           }
         />
-        {/* <Route path="/About" element={<About />} />
-        <Route path="/Rules" element={<Rules />} />*/}
+        {/* <Route path="/About" element={<About />} />*/}
+        <Route path="/Rules" element={<Rules />} />
         <Route
           path="/Details/:characterId"
           element={
