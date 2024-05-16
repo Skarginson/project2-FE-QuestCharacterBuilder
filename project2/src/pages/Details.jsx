@@ -5,8 +5,7 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
-import { Link, useParams } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
   const [detailsData, setDetailsData] = useState({});
@@ -258,6 +257,27 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
                   <p>No abilities found</p>
                 )}
               </div>
+              <button
+                onClick={() => {
+                  console.log(detailsData, "ici");
+                  const role = baseData.roles.find((role) => {
+                    return (role.name = detailsData.role);
+                  });
+                  setNewForm((newForm) => {
+                    return {
+                      ...newForm,
+                      ...detailsData,
+                      abilities: detailsData.abilities.map((ability) => {
+                        return ability.name;
+                      }),
+                      role: `${role.id},${role.name}`,
+                    };
+                  });
+                  navigate(`/edit-abilities/${characterId}`);
+                }}
+              >
+                Edit
+              </button>
             </div>
             <div className="inventoryContainer">
               <h1>Inventory</h1>
