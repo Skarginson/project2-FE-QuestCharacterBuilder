@@ -164,7 +164,20 @@ a:hover {
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
   color: #03a9f4;
 }
+.updateRole {
+  position: absolute;
+  z-index: 6;
+  bottom: -18vw;
+  height: 3vw;
 
+}
+.roleHolder{
+  margin-top: 10vh;
+}
+
+.roleHolder p {
+  margin-left: 5vw;
+}
 /*=========abilitiesSelection==========*/
 .abilitiesSelection {
   margin: 10%;

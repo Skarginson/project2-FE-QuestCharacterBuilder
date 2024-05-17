@@ -5,7 +5,7 @@ import Sidebar from "../components/Sidebar";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { API_BASE_URL } from "../consts";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import ChoseRole from "../components/ChoseRole";
 
 function CharacterDetails({

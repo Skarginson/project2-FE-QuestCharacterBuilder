@@ -7,7 +7,6 @@ import CharacterCard from "../components/CharacterCard";
 import { useState, useEffect } from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
-// import imgEx from "../assets/Projet2img.jpg";
 
 function Homepage() {
   const [charInfo, setCharInfo] = useState([]);
@@ -41,7 +40,7 @@ function Homepage() {
             deleteCard={() => handleDeleteCard(char.id)}
           />
         ))}
-        <CharacterCard name={"Example"} author={"author"} />
+        <CharacterCard name={"Example"} role={"Wizard"} author={"author"} />
       </div>
       <Footer />
     </>
