@@ -26,23 +26,22 @@ function Homepage() {
       <Header />
       <Sidebar />
       <div className="holdCard">
-        <Link to="/create" className="homeCard">
-          Create
+        <Link to="/create" className="createCard">
+          <div className="plus"></div>
+          <p>create</p>
         </Link>
         {charInfo.map((char) => (
-          <Link to={`/details/${char.id}`} key={char.id} className="homeCard">
-            <CharacterCard
-              key={char.id}
-              id={char.id}
-              name={char.name}
-              imageSrc={char.imageSrc}
-              author={char.author}
+          <CharacterCard
+            key={char.id}
+            id={char.id}
+            name={char.name}
+            imageSrc={char.imageSrc}
+            author={char.author}
               role={char.role}
-              deleteCard={() => handleDeleteCard(char.id)}
-            />
-          </Link>
+            deleteCard={() => handleDeleteCard(char.id)}
+          />
         ))}
-        <CharacterCard name={"name"} author={"author"} />
+        <CharacterCard name={"Example"} author={"author"} />
       </div>
       <Footer />
     </>
