@@ -1,6 +1,14 @@
+import "./LegalNotice.css";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import Sidebar from "../components/Sidebar";
+
 function LegalNotice() {
   return (
     <>
+      <Header />
+      <Sidebar />
+
       <div className="legalNotice">
         <p>
           This work uses material from the Quest Creators Resource. The Quest
@@ -13,6 +21,7 @@ function LegalNotice() {
           create experiences that are positive and fun.
         </p>
       </div>
+      <Footer />
     </>
   );
 }

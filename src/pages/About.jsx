@@ -106,6 +106,7 @@ function About() {
             personal. <br />
             We hope you find our application useful and enjoyable to use! Thank
             you for visiting and happy character creation!{" "}
+            <a href="https://github.com/Skarginson/project2-FE">Github Link</a>
           </p>
         </div>
       </div>
