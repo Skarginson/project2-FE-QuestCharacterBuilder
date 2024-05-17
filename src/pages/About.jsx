@@ -2,26 +2,27 @@ import Header from "../components/Header";
 import Footer from "../components/Footer";
 import Sidebar from "../components/Sidebar";
 import ulysseProfile from "../assets/ulysseProfile.jpg";
+import placeholderProfile from "../assets/avatar_placeholder.jpg";
 import "./About.css";
 function About() {
   return (
     <>
       <Header />
       <Sidebar />
-      <div className="About">
-        <div className="Guillaume">
-          <img className="aboutPicture" src="" alt="" />
+      <div className="aboutUs">
+        <div className="guillaume">
+          <img className="aboutPicture" src={placeholderProfile} alt="" />
           <h2 className="aboutName">Guillaume Duramé</h2>
           <p className="aboutText">About Guillaume</p>
-          <p>Liens Guillaume</p>
+          <p className="aboutLink">Liens Guillaume</p>
         </div>
-        <div className="Marie">
-          <img className="aboutPicture" src="" alt="" />
+        <div className="marie">
+          <img className="aboutPicture" src={placeholderProfile} alt="" />
           <h2 className="aboutName">Marie Rabel</h2>
           <p className="aboutText">About Marie</p>
-          <p>Liens Marie</p>
+          <p className="aboutLink">Liens Marie</p>
         </div>
-        <div className="Ulysse">
+        <div className="ulysse">
           <img
             className="aboutPicture"
             src={ulysseProfile}
@@ -33,7 +34,7 @@ function About() {
             project. Quest is one of my favorite role-playing systems, and it's
             a joy to be able to produce something for its community.{" "}
           </p>
-          <p>Liens Ulysse</p>
+          <p className="aboutLink">Liens Ulysse</p>
         </div>
       </div>
       <div className="aboutProject">
