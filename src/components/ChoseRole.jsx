@@ -36,7 +36,7 @@ function ChoseRole({ baseData, handleChange, newForm, edit, setNewForm }) {
               <div key={el.id} className="roleCard">
                 <div className="roleCardFront" >
                   <h3 className="roleName">{el.name}</h3>
-                  <img src={`${API_BASE_URL}/image/${el.name}.jpg`} alt={el.name}/>
+                  <img src={`${API_BASE_URL}/Image/${el.name}.jpg`} alt={el.name}/>
                 </div>
                 <div className="roleCardBack">
                   <p className="roleDescription">{el.description}</p>

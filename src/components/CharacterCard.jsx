@@ -17,7 +17,7 @@ function CharacterCard({ author, name, characterId, deleteCard, role }) {
           className="homeCard"
         >
           <h1>{name}</h1>
-          <img src={`${API_BASE_URL}/image/${role}.jpg`} alt={role} />
+          <img src={`${API_BASE_URL}/Image/${role}.jpg`} alt={role} />
           <i>By {author}</i>
         </div>
         <button
