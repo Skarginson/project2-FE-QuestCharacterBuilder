@@ -149,8 +149,9 @@ function CharacterDetails({
                         onClick={() =>
                           setNewForm((newForm) => {
                             setChangeRole(1);
+                            console.log("details", detailsData);
                             const role = baseData.roles.find((role) => {
-                              return (role.name = detailsData.role);
+                              return role.name === detailsData.role;
                             });
                             return {
                               ...newForm,
@@ -292,29 +293,21 @@ function CharacterDetails({
                 onClick={() => {
                   console.log(detailsData, "ici");
                   const role = baseData.roles.find((role) => {
-                    return (role.name = detailsData.role);
+                    return role.name === detailsData.role;
                   });
-                  {
-                    !edit
-                      ? setNewForm((newForm) => {
-                          return {
-                            ...newForm,
-                            ...detailsData,
-                            abilities: detailsData.abilities.map((ability) => {
-                              return ability.name;
-                            }),
-                            role: `${role.id},${role.name}`,
-                          };
-                        })
-                      : setNewForm((newForm) => {
-                          return {
-                            ...newForm,
-                            ...detailsData,
-                            abilities: [],
-                            role: `${role.id},${role.name}`,
-                          };
-                        });
-                  }
+                  console.log("baseData", baseData.roles);
+
+                  setNewForm((newForm) => {
+                    return {
+                      ...newForm,
+                      ...detailsData,
+                      abilities: detailsData.abilities.map((ability) => {
+                        return ability.name;
+                      }),
+                      role: `${role.id},${role.name}`,
+                    };
+                  });
+
                   navigate(`/edit-abilities/${characterId}`);
                 }}
               >

@@ -3,7 +3,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
 
-function ChoseRole({ baseData, handleChange, newForm, edit }) {
+function ChoseRole({ baseData, handleChange, newForm, edit, setNewForm }) {
   const navigate = useNavigate();
   console.log(newForm);
   const { characterId } = useParams();
@@ -11,8 +11,10 @@ function ChoseRole({ baseData, handleChange, newForm, edit }) {
     try {
       await axios.put(`${API_BASE_URL}/characters/${characterId}`, {
         ...newForm,
+        abilities: [],
         role: newForm.role.split(",")[0],
       });
+      setNewForm({ ...newForm, abilities: [] });
       navigate(`/edit-abilities/${characterId}`);
     } catch (err) {
       console.log(err);
