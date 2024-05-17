@@ -10,6 +10,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import ChoseAbilities from "./components/ChoseAbilities";
 import ChoseInventory from "./components/ChoseInventory";
+import LegalNotice from "./pages/LegalNotice";
 
 function App() {
   const emptyForm = {
@@ -157,6 +158,7 @@ function App() {
             />
           }
         />
+        <Route path="/legal-notice" element={<LegalNotice />} />
       </Routes>
     </>
   );

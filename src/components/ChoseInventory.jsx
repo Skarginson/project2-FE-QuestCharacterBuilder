@@ -4,7 +4,7 @@ import { API_BASE_URL } from "../consts";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
 
-function GearCard({ item, onClick, isSelected }) {
+function GearCard({ item, onClick, isSelected, onDelete, canDelete }) {
   return (
     <div
       className="gearCard"
@@ -15,6 +15,16 @@ function GearCard({ item, onClick, isSelected }) {
     >
       <h3>{item.name}</h3>
       <p>{item.description}</p>
+      {canDelete && (
+        <button
+          className="deleteNewItemButton"
+          onClick={() => {
+            onDelete();
+          }}
+        >
+          X
+        </button>
+      )}
     </div>
   );
 }
@@ -83,13 +93,16 @@ function ChooseInventory({
         });
       }
       setNewForm(emptyForm);
-      navigate("/");
+      navigate(`/details/${characterId}`);
     } catch (error) {
       console.error("Failed to process your request:", error);
     }
   };
 
-  console.log("newForm", newForm);
+  const handleDeleteItem = (index) => {
+    setNewItems((prevItems) => prevItems.filter((_, i) => i !== index));
+  };
+
   return (
     <>
       <h2 className="titleSelectGear">
@@ -132,7 +145,9 @@ function ChooseInventory({
           I've changed my mind!
         </button>
       )}
-      <h2>{characterId ? "Edit Additional Items" : "Add More Items"}</h2>
+      <h2 className="inventoryH">
+        {characterId ? "Edit Additional Items" : "Add More Items"}
+      </h2>
       <div className="intexte">
         <input
           type="text"
@@ -153,6 +168,8 @@ function ChooseInventory({
             item={item}
             onClick={() => {}}
             isSelected={false}
+            onDelete={() => handleDeleteItem(index)}
+            canDelete={true}
           />
         ))}
       </div>
