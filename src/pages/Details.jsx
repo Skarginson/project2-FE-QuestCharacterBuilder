@@ -111,7 +111,7 @@ function CharacterDetails({
                     data-name="name"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.name}
                   </span>{" "}
@@ -120,7 +120,7 @@ function CharacterDetails({
                     data-name="surname"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.surname}
                   </span>
@@ -128,7 +128,7 @@ function CharacterDetails({
                   <span
                     data-name="age"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "small editable"}
+                    className={edit ? "small editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.age}
@@ -137,7 +137,7 @@ function CharacterDetails({
                   <span
                     data-name="size"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "small editable"}
+                    className={edit ? "small editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.height}
@@ -178,7 +178,7 @@ function CharacterDetails({
                     data-name="qualities1"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.qualities1}
                   </span>
@@ -187,7 +187,7 @@ function CharacterDetails({
                     data-name="qualities2"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.qualities2}
                   </span>
@@ -195,7 +195,7 @@ function CharacterDetails({
                   <span
                     data-name="qualities3"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "tall editable"}
+                    className={edit ? "tall editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.qualities3}
@@ -205,7 +205,7 @@ function CharacterDetails({
                     data-name="accessories1"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.accessories1}
                   </span>
@@ -213,7 +213,7 @@ function CharacterDetails({
                   <span
                     data-name="accessories2"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "tall editable"}
+                    className={edit ? "tall editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.accessories2}
@@ -223,7 +223,7 @@ function CharacterDetails({
                     data-name="move"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.move}
                   </span>
@@ -232,7 +232,7 @@ function CharacterDetails({
                     data-name="origin"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.origin}
                   </span>
@@ -240,7 +240,7 @@ function CharacterDetails({
                   <span
                     data-name="culture"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "tall editable"}
+                    className={edit ? "tall editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.culture}
@@ -250,7 +250,7 @@ function CharacterDetails({
                     data-name="belief"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.belief}
                   </span>
@@ -259,7 +259,7 @@ function CharacterDetails({
                     data-name="flaw"
                     contentEditable={edit ? "true" : "false"}
                     onInput={handleEdit}
-                    className={edit && "editable"}
+                    className={edit ? "editable" : ""}
                   >
                     {detailsData.flaw}
                   </span>{" "}
@@ -267,7 +267,7 @@ function CharacterDetails({
                   <span
                     data-name="dream"
                     contentEditable={edit ? "true" : "false"}
-                    className={edit && "tall editable"}
+                    className={edit ? "tall editable" : ""}
                     onInput={handleEdit}
                   >
                     {detailsData.dream}
