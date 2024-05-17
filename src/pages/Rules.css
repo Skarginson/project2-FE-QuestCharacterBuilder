@@ -1,0 +1,14 @@
+.rules {
+  margin: 10% 30%;
+  text-align: center;
+}
+
+.rules h1,
+.rulesH2 {
+  text-align: center;
+  margin: 2rem;
+}
+
+.rulesH2 {
+  width: auto;
+}
