@@ -75,9 +75,11 @@ function ChooseInventory({
           updatedCharacterData
         );
       } else {
+        const separate = newForm.role.split(",");
         await axios.post(`${API_BASE_URL}/characters`, {
           ...newForm,
           inventory: [selectedGear, ...newItems],
+          role: separate[separate.length - 1],
         });
       }
       setNewForm(emptyForm);
