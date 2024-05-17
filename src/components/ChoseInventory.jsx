@@ -1,5 +1,5 @@
 import "../ChoseInventory.css";
-import { useState, useEffect } from "react";
+import { useState} from "react";
 import { API_BASE_URL } from "../consts";
 import axios from "axios";
 import { useNavigate, useParams } from "react-router-dom";
@@ -31,7 +31,6 @@ function GearCard({ item, onClick, isSelected, onDelete, canDelete }) {
 
 function ChooseInventory({
   baseData,
-  setBaseData,
   newForm,
   setNewForm,
   emptyForm,

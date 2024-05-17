@@ -3,7 +3,7 @@ import { API_BASE_URL } from "../consts";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
-function CharacterCard({ author, name, imageSrc, characterId, deleteCard }) {
+function CharacterCard({ author, name, characterId, deleteCard, role }) {
   const navigate = useNavigate();
   const handleDelete = async () => {
     await axios.delete(`${API_BASE_URL}/characters/${characterId}`);
@@ -17,7 +17,7 @@ function CharacterCard({ author, name, imageSrc, characterId, deleteCard }) {
           className="homeCard"
         >
           <h1>{name}</h1>
-          <img src={imageSrc} alt="" />
+          <img src={`${API_BASE_URL}/Image/${role}.jpg`} alt={role} />
           <i>By {author}</i>
         </div>
         <button

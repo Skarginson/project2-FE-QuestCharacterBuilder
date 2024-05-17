@@ -117,7 +117,7 @@ a:hover {
   width: 20vw;
   height: 35vh;
   margin-right: 2.5vw;
-  margin-bottom: 2.5vw;
+  margin-bottom: 4.5vw;
   background-color: #0015;
   transition: transform 0.999s;
   transform-style: preserve-3d;
@@ -159,9 +159,78 @@ a:hover {
   color: antiquewhite;
   padding: 7%;
 }
+.roleCardBack input:checked {
+  border-color: #03a9f4;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #03a9f4;
+}
+.updateRole {
+  position: absolute;
+  z-index: 6;
+  bottom: -18vw;
+  height: 3vw;
 
+}
+.roleHolder{
+  margin-top: 10vh;
+}
+
+.roleHolder p {
+  margin-left: 5vw;
+}
 /*=========abilitiesSelection==========*/
-
+.abilitiesSelection {
+  margin: 10%;
+  display: flex;
+  flex-wrap: wrap;
+  padding-bottom: 0%;
+}
+.abilitiesSelection ul {
+  width: 2vw;
+}
 .abilitiesCard {
+  height: 25vh;
+  width: 20vw;
   color: white;
+  margin: 1%;
+}
+.abilitiesCard h2 {
+  height: 4vh;
+  width: 20vw;
+  color: white;
+  margin: 1%;
+}
+
+.quote {
+  margin: 10%;
+}
+
+input[type="checkbox"] {
+  position: relative;
+  top: 8px;
+  width: 40px;
+  height: 40px;
+  -webkit-appearance: none;
+  outline: none;
+  transition: 0.5s;
+}
+
+input[type="checkbox"]:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 4px solid #262626;
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+input:checked[type="checkbox"]:before {
+  border-left: none;
+  border-top: none;
+  width: 20px;
+  border-color: rgb(24, 196, 24);
+  transform: rotate(45deg) translate(5px, -10px);
 }
