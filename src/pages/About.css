@@ -1,0 +1,31 @@
+.aboutPicture {
+  height: 15rem;
+  border-radius: 50%;
+  width: 15rem;
+}
+
+.aboutUs {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
+.guillaume {
+  display: flex;
+  flex-direction: column;
+}
+
+.guillaume.aboutPicture {
+  align-items: center;
+}
+
+.aboutName,
+.aboutText,
+.aboutLink {
+  text-align: center;
+}
+/* .guillaume,
+.marie,
+.ulysse {
+  border: 1px solid red;
+} */

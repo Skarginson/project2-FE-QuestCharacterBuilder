@@ -5,6 +5,7 @@ import axios from "axios";
 function ChoseAbilities({ baseData, handleChange, newForm }) {
   const navigate = useNavigate();
   const { characterId } = useParams();
+  console.log("newFomr", newForm);
   async function updateAbilities() {
     try {
       await axios.put(`${API_BASE_URL}/characters/${characterId}`, {

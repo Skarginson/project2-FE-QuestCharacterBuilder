@@ -63,19 +63,6 @@ function ChooseInventory({
     setSelectedGear(null);
   };
 
-  console.log("newForm", newForm);
-  // async function handleSubmit(newForm) {
-  //   try {
-  //     await axios.post(`${API_BASE_URL}/characters`, {
-  //       ...newForm,
-  //       inventory: [selectedGear, ...newItems],
-  //     });
-  //     navigate("/");
-  //   } catch (err) {
-  //     setErrorMsg(err.message);
-  //   }
-  // }
-
   const handleSubmit = async (newForm) => {
     const updatedCharacterData = {
       ...newForm,
@@ -88,9 +75,11 @@ function ChooseInventory({
           updatedCharacterData
         );
       } else {
+        const separate = newForm.role.split(",");
         await axios.post(`${API_BASE_URL}/characters`, {
           ...newForm,
           inventory: [selectedGear, ...newItems],
+          role: separate[separate.length - 1],
         });
       }
       setNewForm(emptyForm);
@@ -143,7 +132,9 @@ function ChooseInventory({
           I've changed my mind!
         </button>
       )}
-      <h2>{characterId ? "Edit Additional Items" : "Add More Items"}</h2>
+      <h2 className="inventoryH">
+        {characterId ? "Edit Additional Items" : "Add More Items"}
+      </h2>
       <div className="intexte">
         <input
           type="text"

@@ -3,15 +3,22 @@
 }
 
 .footer {
-  width: 100vw;
+  width: auto;
   height: 4vh;
   position: fixed;
   bottom: 0px;
+  opacity: 1;
+}
+
+.footerText {
+  font-size: small;
+  line-height: 1.1;
   text-align: center;
+  text-wrap: wrap;
 }
 
 .header {
-  width: 100vw;
+  width: 100vw; /*when switched to auto, doesn't take all the screen width ? */
   height: 10vh;
   position: absolute;
   top: 0px;
@@ -143,7 +150,6 @@ a:hover {
   right: 0;
   bottom: 0;
   opacity: 0;
-  
 }
 .roleCardFront > img {
   width: 100%;
@@ -173,15 +179,12 @@ a:hover {
 }
 .abilitiesSelection ul {
   width: 2vw;
-
 }
 .abilitiesCard {
   height: 25vh;
   width: 20vw;
   color: white;
   margin: 1%;
-  
-  
 }
 .abilitiesCard h2 {
   height: 4vh;
@@ -190,10 +193,9 @@ a:hover {
   margin: 1%;
 }
 
-.quote { 
+.quote {
   margin: 10%;
 }
-
 
 input[type="checkbox"] {
   position: relative;
