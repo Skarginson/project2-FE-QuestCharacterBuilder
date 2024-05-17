@@ -8,7 +8,7 @@ function CharacterCard({ author, name, characterId, deleteCard, role }) {
   const handleDelete = async () => {
     await axios.delete(`${API_BASE_URL}/characters/${characterId}`);
   };
-  return ( 
+  return (
     <>
       {" "}
       <div className="refRelative">
