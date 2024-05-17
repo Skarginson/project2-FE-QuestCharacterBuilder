@@ -83,7 +83,7 @@ function ChooseInventory({
         });
       }
       setNewForm(emptyForm);
-      navigate("/");
+      navigate(`/details/${characterId}`);
     } catch (error) {
       console.error("Failed to process your request:", error);
     }

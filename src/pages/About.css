@@ -2,30 +2,50 @@
   height: 15rem;
   border-radius: 50%;
   width: 15rem;
+  margin-left: auto;
+  margin-right: auto;
 }
-
+.about {
+  width: 100%;
+  overflow: hidden;
+}
 .aboutUs {
   display: flex;
-  flex-direction: row;
   justify-content: space-evenly;
+  width: 100%;
+  margin: 10vh auto;
 }
 
-.guillaume {
+.logo {
+  height: 3rem;
+}
+
+.guillaume,
+.marie,
+.ulysse {
+  width: 30%;
+}
+
+.aboutPicture {
   display: flex;
-  flex-direction: column;
 }
 
-.guillaume.aboutPicture {
-  align-items: center;
-}
-
-.aboutName,
 .aboutText,
 .aboutLink {
   text-align: center;
 }
-/* .guillaume,
-.marie,
-.ulysse {
-  border: 1px solid red;
-} */
+
+.aboutName {
+  width: 100%;
+  text-align: center;
+}
+
+.textProject {
+  text-align: center;
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+.aboutLink {
+  align-items: end;
+}
