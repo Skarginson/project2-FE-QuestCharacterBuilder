@@ -259,7 +259,6 @@ function CharacterDetails({ baseData, setBaseData, newForm, setNewForm }) {
               </div>
               <button
                 onClick={() => {
-                  console.log(detailsData, "ici");
                   const role = baseData.roles.find((role) => {
                     return (role.name = detailsData.role);
                   });

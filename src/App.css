@@ -143,6 +143,7 @@ a:hover {
   right: 0;
   bottom: 0;
   opacity: 0;
+  
 }
 .roleCardFront > img {
   width: 100%;
@@ -157,9 +158,23 @@ a:hover {
   color: antiquewhite;
   padding: 7%;
 }
+.roleCardBack input:checked {
+  border-color: #03a9f4;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  color: #03a9f4;
+}
 
 /*=========abilitiesSelection==========*/
 
 .abilitiesCard {
+  height: 20vh;
+  width: 20vw;
   color: white;
+  margin: 10%;
+}
+.abilitiesCard h2{
+  height: 2vh;
+  width: 20vw;
+  color: white;
+  margin: 10%;
 }
