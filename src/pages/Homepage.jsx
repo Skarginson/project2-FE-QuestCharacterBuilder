@@ -33,7 +33,7 @@ function Homepage() {
         {charInfo.map((char) => (
           <CharacterCard
             key={char.id}
-            id={char.id}
+            characterId={char.id}
             name={char.name}
             imageSrc={char.imageSrc}
             author={char.author}
