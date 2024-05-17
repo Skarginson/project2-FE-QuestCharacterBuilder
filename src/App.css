@@ -3,18 +3,13 @@
 }
 
 .footer {
-  width: auto;
+  width: 100%;
   height: 4vh;
   position: fixed;
   bottom: 0px;
   opacity: 1;
-}
-
-.footerText {
-  font-size: small;
-  line-height: 1.1;
-  text-align: center;
-  text-wrap: wrap;
+  display: flex;
+  justify-content: center;
 }
 
 .header {
