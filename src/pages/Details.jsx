@@ -94,7 +94,7 @@ function CharacterDetails({
         <>
           {" "}
           <div className="cadre">
-            <div className="leftSide">
+            <div className="upSide">
               <div className="details">
                 {" "}
                 <div className="headDetails">
@@ -146,6 +146,7 @@ function CharacterDetails({
                   <span>
                     {edit ? (
                       <button
+                        className="editRole"
                         onClick={() =>
                           setNewForm((newForm) => {
                             setChangeRole(1);
@@ -166,7 +167,7 @@ function CharacterDetails({
                           })
                         }
                       >
-                        detailsData.role
+                        {detailsData.role}
                       </button>
                     ) : (
                       detailsData.role
@@ -281,39 +282,43 @@ function CharacterDetails({
                   detailsData.abilities.map((ability, index) => (
                     <div key={index} className="abilityCard">
                       <h3>{ability.name}</h3>
-                      <p>Coût en AP: {ability.cost}</p>
-                      <p>Description: {ability.description}</p>
+                      <p>
+                        Coût en AP: {ability.cost} <br />
+                        Description: {ability.description}
+                      </p>
                     </div>
                   ))
                 ) : (
                   <p>No abilities found</p>
                 )}
+
+                <button
+                  onClick={() => {
+                    console.log(detailsData, "ici");
+                    const role = baseData.roles.find((role) => {
+                      return role.name === detailsData.role;
+                    });
+                    console.log("baseData", baseData.roles);
+
+                    setNewForm((newForm) => {
+                      return {
+                        ...newForm,
+                        ...detailsData,
+                        abilities: detailsData.abilities.map((ability) => {
+                          return ability.name;
+                        }),
+                        role: `${role.id},${role.name}`,
+                      };
+                    });
+
+                    navigate(`/edit-abilities/${characterId}`);
+                  }}
+                >
+                  Edit
+                </button>
               </div>
-              <button
-                onClick={() => {
-                  console.log(detailsData, "ici");
-                  const role = baseData.roles.find((role) => {
-                    return role.name === detailsData.role;
-                  });
-                  console.log("baseData", baseData.roles);
-
-                  setNewForm((newForm) => {
-                    return {
-                      ...newForm,
-                      ...detailsData,
-                      abilities: detailsData.abilities.map((ability) => {
-                        return ability.name;
-                      }),
-                      role: `${role.id},${role.name}`,
-                    };
-                  });
-
-                  navigate(`/edit-abilities/${characterId}`);
-                }}
-              >
-                Edit
-              </button>
             </div>
+
             <div className="inventoryContainer">
               <h1>Inventory</h1>
               {detailsData.inventory ? (

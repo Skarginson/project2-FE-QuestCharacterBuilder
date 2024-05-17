@@ -10,25 +10,79 @@
   margin-top: 10vh;
 }
 
-.homeCard {
+.createCard {
   width: 15vw;
-  height: 20vw;
+  height: 25vw;
   background-color: white;
   border-radius: 12%;
-  padding: 1vw;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
+  padding: 1vw;
   margin: 4vw;
+}
+
+.homeCard {
+  width: 15vw;
+  height: 25vw;
+  background-color: white;
+  border-radius: 12%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1vw;
 }
 
 .homeCard h1 {
   color: #001514;
   padding: 0;
   margin: 0;
+  margin-bottom: 1.5vw;
+  font-size: 2rem;
 }
 
 .homeCard img {
   width: 80%;
+  margin-bottom: 1.5vw;
+}
+
+.deleteBtn {
+  width: 6vw;
+  height: 3vw;
+  padding: 0;
+  margin: 0;
+  position: absolute;
+  bottom: -1.4vw;
+  right: 3.6vw;
+  z-index: 5;
+}
+
+.homeCard i {
+  color: #001514;
+  margin-bottom: 3.5vw;
+}
+
+.refRelative {
+  position: relative;
+  height: 25vw;
+  width: 15vw;
+  margin: 4vw;
+}
+
+.homeCard:hover {
+  cursor: pointer;
+}
+
+.plus {
+  height: 9vw;
+  width: 9vw;
+  background-image: url("./assets/add.png");
+  margin-top: 7vw;
+  background-size: contain;
+}
+
+.plus:hover {
+  background-image: url("./assets/add2.png");
 }
