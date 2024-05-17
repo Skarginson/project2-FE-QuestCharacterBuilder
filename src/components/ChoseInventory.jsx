@@ -78,21 +78,30 @@ function ChooseInventory({
       inventory: [selectedGear, ...newItems],
     };
     try {
+      let response;
       if (characterId) {
-        await axios.put(
+        response = await axios.put(
           `${API_BASE_URL}/characters/${characterId}`,
           updatedCharacterData
         );
+        navigate(`/details/${characterId}`);
       } else {
         const separate = newForm.role.split(",");
-        await axios.post(`${API_BASE_URL}/characters`, {
+        response = await axios.post(`${API_BASE_URL}/characters`, {
           ...newForm,
           inventory: [selectedGear, ...newItems],
           role: separate[separate.length - 1],
         });
       }
       setNewForm(emptyForm);
-      navigate(`/details/${characterId}`);
+      console.log(response);
+
+      const newCharacterId = response.data.id;
+      if (newCharacterId) {
+        navigate(`/details/${newCharacterId}`);
+      } else {
+        setErrorMsg("Ca marche pas parce que y'a pas d'ID mdr");
+      }
     } catch (error) {
       console.error("Failed to process your request:", error);
     }
